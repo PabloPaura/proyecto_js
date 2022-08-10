@@ -34,16 +34,29 @@ const registro = [estudiante1, estudiante2, estudiante3, estudiante4, estudiante
 //Funciones:
 
 // //Función para ingresar nuevo estudiante:
-function nuevoEstudiante(){
-    let nombreIngresado = prompt("Ingresá tu nombre")
-    let apellidoIngresado = prompt("Ingresá tu apellido")
-    let edadIngresada = prompt("Ingresá tu edad")
-    let materiaFavoritaIngresada = prompt("Ingresá tu materia favorita")
-    let estudianteCreado = new Estudiante(nombreIngresado, apellidoIngresado, edadIngresada, materiaFavoritaIngresada)
-    registro.push(estudianteCreado)
-    // 
+// function nuevoEstudiante(){
+//     let nombreIngresado = prompt("Ingresá tu nombre")
+//     let apellidoIngresado = prompt("Ingresá tu apellido")
+//     let edadIngresada = prompt("Ingresá tu edad")
+//     let materiaFavoritaIngresada = prompt("Ingresá tu materia favorita")
+//     let estudianteCreado = new Estudiante(nombreIngresado, apellidoIngresado, edadIngresada, materiaFavoritaIngresada)
+//     registro.push(estudianteCreado)
+//     // 
 
+// }
+
+function guardarEstudiante(){
+    let nombreImput = document.getElementById("nombreIngresado")
+    let apellidoImput = document.getElementById("apellidoIngresado")
+    let edadImput = document.getElementById("edadIngresada")
+    let materiaImput = document.getElementById("edadIngresada")
+    let estudianteCreado = new Estudiante(nombreImput.value, apellidoImput.value, edadImput.value, materiaImput.value, "assets/avatar_1.jpg")
+    console.log(estudianteCreado)
+    registro.push(estudianteCreado)
 }
+const guardarEstudianteBtn = document.getElementById("guardarEstudiante")
+guardarEstudianteBtn.addEventListener("click", guardarEstudiante)
+
 
 //Funcion para iniciar el programa de opciones:
 function iniciar(){
@@ -100,7 +113,7 @@ function menu(opcionSeleccionada){
             alert(`Gracias por pasar por la galería, volvé pronto!`)
         break
         case 1:
-            nuevoEstudiante()
+            guardarEstudiante()
             for(let elem of registro){
                 console.log(`${elem.apellido}, ${elem.nombre} tiene ${elem.edad} años y le gusta mucho ${elem.materiaFavorita}`)
             } 

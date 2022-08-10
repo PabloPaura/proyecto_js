@@ -6,6 +6,11 @@
     color: rgb(219, 198, 198);
 }
 
+h1{
+    font-size: 3em;
+    text-align: center;
+    margin-bottom: 3rem;
+}
 .card{
     display: grid;
     grid-template-columns: repeat(3,1fr);
@@ -15,12 +20,43 @@
     width: 80%;
     max-width: 200px;
     max-height: 300px;
-    margin: 1rem;
-    border: 1px solid white;
+    margin: 3rem;
+    border: 2px solid white;
     border-radius: 4%;
     gap: 2rem;
     background-color: cornflowerblue;
     color:rgb(219, 198, 198);
     text-align: center;
-    
+}
+
+.formRegistro{
+    width: 500px;
+    padding: 3rem;
+    margin: auto;
+    background-color: rgba(234, 225, 215, 0.644);
+    border-radius: 4px;
+}
+
+h4{
+    font-size: 2em;
+    margin-bottom: 2rem;
+    color:rgba(255, 248, 220, 0.786);  
+    text-align: center; 
+}
+.controles{
+    width: 100%;
+    background-color: rgba(255, 248, 220, 0.786);
+    color: black;
+    padding: 1rem;
+    border-radius: 4px;
+    margin-bottom: 2rem;
+    border: 1px solid black;
+    font-size: 1.5em;
+}
+.formRegistro .boton{
+    width: 100%;
+    border: none;
+    margin: 1.5rem 0;
+    padding: 1rem;
+    font-size: 1.5em;
 }
