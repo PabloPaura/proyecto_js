@@ -1,39 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
     <title>Desafio ciclos</title>
 </head>
 <body>
+  <header>
+    <picture>
+      <img src="./assets/Icono.svg" alt="Logo de maestro en escritorio">
+    </picture>
+  </header>
     <h1>Proyecto JS-Red social para estudiantes</h1>
     <h4>Formulario de registro</h4>
     <section class="formRegistro">
         <input class="controles" type="text" name="nombre" id="nombreIngresado" placeholder="Ingresá tu nombre">
         <input class="controles" type="text" name="apellido" id="apellidoIngresado" placeholder="Ingresá tu apellido">
         <input class="controles" type="text" name="edad" id="edadIngresada" placeholder="Ingresá tu edad">
+        <input class="controles" type="text" name="correo" id="correoIngresado" placeholder="Ingresá tu correo">
+        <input class="controles" type="text" name="hobbie" id="hobbieIngresado" placeholder="Ingresá tu hobbie">
         <input class="controles" type="text" name="materia" id="materiaIngresada" placeholder="Ingresá tu materia favorita">
-        <input class="boton" id= "guardarEstudiante" type="submit" value="Registrarse">
-    </section>
-    <!-- Cards --> 
+        <input class="controles" type="text" name="insta" id="instaIngresado" placeholder="Ingresá tu instagram">
+        <input class="boton" id= "guardarEstudiante" type="submit" value="Registrarme">
+        <input class="boton" id= "mostrarGaleria" type="submit" value="Ver Galería">
+        <input class="boton" id= "ocultarGaleria" type="submit" value="Ocultar Galería">
+        <input class="boton" id= "grupoCompañeros" type="submit" value="Crear Grupo">
 
-    <!-- <article class="card">
-    <h3 class="nombreCard">Pablo Paura</h3>
-    <img src="assets/avatar_1.jpg" alt="">
-    <div class="content">
-        <p class="edadCard">48</p>
-        <p class="materiaCard">Matemática</p>
-        <a href="" target="blank">Contactar</a>
+    </section>
+    <h4>Galería de compañeros</h4>
+    <div id="alumnosCards">
+      
     </div>
 
- </article> -->
+   
 
- <div id="alumnosCards"></div>
+    <h4>Buscador de amigos</h4>
+    <section class="buscadorRegistro">
+      <input class="controles" type="text" name="apellido" id="apellidoBuscado" placeholder="Ingresá el apellido de tu amigo">
+      <input class="boton" id= "buscarEstudiante" type="submit" value="Buscar">
+    </section>
+    <h4>Calculador de promedios</h4>
+    <section class="promRegistro">
+      <input class="controles" type="text" name="cantNotas" id="cantNotas" placeholder="Ingresá la cantidad de notas">
+      <input class="controles" type="text" name="notaIngresada" id="notaIngresada" placeholder="Ingresá las notas">
+      <input class="boton" id= "calcPromedio" type="submit" value="Calcular">
+
+    </section>
+    
 
 
 
+<footer>
+  <div class="redes">
+    <a href="https://www.youtube.com/channel/UC3O4XSY9LFRKzwqr0c5apIg" target="_blank">
+        <img class="redes__img" src="./assets/YT.png" alt="Logo de Youtube">
+      </a>      
+      <a href="https://classroom.google.com/" target="_blank">
+        <img class="redes__img" src="./assets/clas.png" alt="Logo de classroom">
+      </a>
+</div>
+</footer>
     <script src="proyecto.js"></script>
 </body>
 </html> 

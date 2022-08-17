@@ -3,107 +3,155 @@
 
 // //Función constructora:
 class Estudiante{
-    constructor(nombre, apellido, edad, materiaFavorita, imagen){
+    constructor(id, nombre, apellido, edad, correo, hobbie, materiaFavorita, insta, imagen){
+        this.id = id,
         this.nombre = nombre,
         this.apellido = apellido,
         this.edad = edad,
+        this.correo = correo,
+        this.hobbie = hobbie,
         this.materiaFavorita = materiaFavorita
+        this.insta = insta,
         this.imagen = imagen
     }
 }
 
 
 // //Instanciación de objetos:
-const estudiante1 = new Estudiante("Pablo", "Paura", 48, "Matemática", "assets/avatar_1.jpg")
-const estudiante2 = new Estudiante("Lorena", "Suarez", 41, "Lengua", "assets/avatar_4.jpg")
-const estudiante3 = new Estudiante("Adrián", "Gonzalez", 36, "Naturales", "assets/avatar_2.jpg")
-const estudiante4 = new Estudiante("Lucía", "Mendez", 44, "Música", "assets/avatar_5.jpg")
-const estudiante5 = new Estudiante("Marcelo", "Pérez", 29, "Química", "assets/avatar_3.jpg")
-const estudiante6 = new Estudiante("Mariela", "Gonzalez", 40, "Música", "assets/avatar_6.jpg")
+const estudiante1 = new Estudiante("1","Pablo", "Paura", 48, "pp@mail.com", "Tocar el piano", "Matemática", "@pablop", "assets/avatar_1.jpg")
+const estudiante2 = new Estudiante("2","Lorena", "Suarez", 41, "losu@mail.com", "Ciclismo", "Lengua", "@lgon", "assets/avatar_4.jpg")
+const estudiante3 = new Estudiante("3","Adrián", "Gonzalez", 36, "adrigon@mail.com", "Jugar al fútbol", "Naturales", "@adrigon", "assets/avatar_2.jpg")
+const estudiante4 = new Estudiante("4","Lucía", "Mendez", 44, "lumendez@mail.com", "Cocinar", "Música", "@lulimen", "assets/avatar_5.jpg")
+const estudiante5 = new Estudiante("5","Marcelo", "Pérez", 29, "marceloperez@mail.com", "Ir al gym", "Química", "@marcepp", "assets/avatar_3.jpg")
+const estudiante6 = new Estudiante("6","Mariela", "Gonzalez", 40, "marigonzalez@mail.com", "Fotografía", "Música", "@marigon", "assets/avatar_7.jpg")
+const estudiante7 = new Estudiante("7","Cintia", "Basualdo", "38", "cinbasualdo@mail.com", "Viajar", "Geografía", "@cinbas", "assets/avatar_4.jpg")
+const estudiante8 = new Estudiante("8","Mariano", "Villanueva", "26", "mvilla@mail.com", "Manejar", "Literatura", "@mvilla", "assets/avatar_1.jpg")
 
-// //Control de la función:
-// // console.log(estudiante1)
-// // estudiante1.mostrarDatoAlumno() 
 
 // //Array:
 
-const registro = [estudiante1, estudiante2, estudiante3, estudiante4, estudiante5, estudiante6]
-// console.log(registro)
+let registro = []
+let grupoCompañeros = []
 
+//Lógica para inicializar galería:
 
-//Funciones:
-
-// //Función para ingresar nuevo estudiante:
-// function nuevoEstudiante(){
-//     let nombreIngresado = prompt("Ingresá tu nombre")
-//     let apellidoIngresado = prompt("Ingresá tu apellido")
-//     let edadIngresada = prompt("Ingresá tu edad")
-//     let materiaFavoritaIngresada = prompt("Ingresá tu materia favorita")
-//     let estudianteCreado = new Estudiante(nombreIngresado, apellidoIngresado, edadIngresada, materiaFavoritaIngresada)
-//     registro.push(estudianteCreado)
-//     // 
-
-// }
-
-function guardarEstudiante(){
-    let nombreImput = document.getElementById("nombreIngresado")
-    let apellidoImput = document.getElementById("apellidoIngresado")
-    let edadImput = document.getElementById("edadIngresada")
-    let materiaImput = document.getElementById("edadIngresada")
-    let estudianteCreado = new Estudiante(nombreImput.value, apellidoImput.value, edadImput.value, materiaImput.value, "assets/avatar_1.jpg")
-    console.log(estudianteCreado)
-    registro.push(estudianteCreado)
+if(localStorage.getItem("registro")){
+    registro = JSON.parse(localStorage.getItem("registro"))
+    console.log(registro)
+}else{
+    registro.push(estudiante1, estudiante2, estudiante3, estudiante4, estudiante5, estudiante6, estudiante7, estudiante8)
+    localStorage.setItem("registro", JSON.stringify(registro))
+    console.log(registro)
 }
-const guardarEstudianteBtn = document.getElementById("guardarEstudiante")
-guardarEstudianteBtn.addEventListener("click", guardarEstudiante)
 
-
-//Funcion para iniciar el programa de opciones:
-function iniciar(){
-    let opcion = parseInt(prompt(`¿Qué querés hacer hoy?:
-                        1- Agregarme al registro
-                        2- Ver los perfiles de mis compañeros
-                        3- Buscar un amigo
-                        4- Borrar mi perfil
-                        5- Ver lista de tareas semanales
-                        6- Calcular mi promedio
-                        0- Salir
-                        `))
-    menu(opcion)
+//Lógica para armar grupo de compañeros:
+if(localStorage.getItem("grupo")){
+    grupoCompañeros = JSON.parse(localStorage.getItem("grupo"))
+}else{
+    localStorage.setItem("grupo", [])
+    console.log(grupoCompañeros)
 }
 
 //Plantilla para crear nuevo estudiante:
 
 let divEstudiantes = document.getElementById("alumnosCards")
 divEstudiantes.setAttribute("class", "card")
-registro.forEach((estudiante)=>{
-    let nuevoCard = document.createElement("div")
-    nuevoCard.innerHTML = `<article id="${estudiante.id}class="card">
-                                <h3 class="nombreCard">${estudiante.nombre}  ${estudiante.apellido}</h3>
-                                <img src="${estudiante.imagen}" alt="">
-                                <div class="content">
-                                    <p class="edadCard">Edad: ${estudiante.edad}</p>
-                                    <p class="materiaCard">Le gusta mucho: ${estudiante.materiaFavorita}</p>
-                                    <a href="" target="blank">Contactar</a>
-                                </div>
-    
-                            </article>`
-    divEstudiantes.appendChild(nuevoCard)
+function mostrarGaleria(){
+    registro.forEach((estudiante)=>{
+        let nuevoCard = document.createElement("div")
+        nuevoCard.innerHTML += `<div class="card" style="width: 18rem;">
+                                    <img src="${estudiante.imagen}" class="card-img-top" alt="Avatar">
+                                    <div class="card-body">
+                                    <h5 class="card-title">${estudiante.nombre} ${estudiante.apellido}</h5>
+                                    <p class="card-text">Hola, me llamo ${estudiante.nombre}. Me encanta ${estudiante.hobbie} y también ${estudiante.materiaFavorita}. Contactáme!</p>
+                                    </div>
+                                    <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">Edad: ${estudiante.edad}</li>
+                                    <li class="list-group-item">Hobbie: ${estudiante.hobbie}</li>
+                                    </ul>
+                                    <div class="card-body">
+                                    <button type="button" class="btn btn-light" id"boton${estudiante.id}">Conoceme</button>
+                                    </div>
+                                </div>`
+        divEstudiantes.appendChild(nuevoCard)  
+        
+        //Botón agregar estudiante a un grupo:
+        // let botonAgregar = document.getElementById(`boton${estudiante.id}`)
+        // console.log(botonAgregar)
 
-})
+    })  
+}
+
+
+//mostrarGaleria()
+//ocultarGaleria()
+let mostrarGaleriaBtn = document.getElementById("mostrarGaleria")
+mostrarGaleriaBtn.addEventListener("click", mostrarGaleria)
+//Funciones:
+
+function guardarEstudiante(){
+    let nombreImput = document.getElementById("nombreIngresado")
+    let apellidoImput = document.getElementById("apellidoIngresado")
+    let edadImput = document.getElementById("edadIngresada")
+    let correoImput = document.getElementById("correoIngresado")
+    let hobbieImput = document.getElementById("hobbieIngresado")
+    let materiaImput = document.getElementById("materiaIngresada")
+    let instaImput = document.getElementById("instaIngresado")
+    let estudianteCreado = new Estudiante(registro.length+1, nombreImput.value, apellidoImput.value, edadImput.value, correoImput.value, hobbieImput.value, materiaImput.value, instaImput.value, "assets/avatar_1.jpg") 
+    console.log(estudianteCreado)
+    //Pushear nuevo estudiante:
+    registro.push(estudianteCreado)
+    //Guardar nuevo estudiante en storage:
+    localStorage.setItem("registro", JSON.stringify(registro))
+    
+}
+//Boton guardar estudiante:
+const guardarEstudianteBtn = document.getElementById("guardarEstudiante")
+guardarEstudianteBtn.addEventListener("click", guardarEstudiante)
+
+//Botón armar grupo:
+// const armarGrupoBtn = document.getElementById("grupoCompañeros")
+// armarGrupoBtn.addEventListener("click", crearGrupo )
+
+
+
+// let galeriaJSON = JSON.stringify(registro)
+// localStorage.setItem("arraygaleria", galeriaJSON)
+ 
+
+//Funcion para iniciar el programa de opciones:
+// function iniciar(){
+//     let opcion = parseInt(prompt(`¿Qué querés hacer hoy?:
+//                         1- Agregarme al registro
+//                         2- Ver los perfiles de mis compañeros
+//                         3- Buscar un amigo
+//                         4- Borrar mi perfil
+//                         5- Ver lista de tareas semanales
+//                         6- Calcular mi promedio
+//                         0- Salir
+//                         `))
+//     menu(opcion)
+// }
+
 
 
 //Función para buscar un amigo:
-function buscarAmigo(){
-    let buscarAlumno = prompt("Ingresá el apellido del alumno que buscas")
-    let busqueda = registro.some((estudiante) => estudiante.apellido == buscarAlumno)
-    // console.log(busqueda)
-    if(busqueda == true){
-        console.log("Tu amigo está logueado")
-    }else{
-        console.log("Tu amigo no está logueado¡ Invitalo!")
-    }
-}
+// function buscarAmigo(){
+//     let buscarAlumno = prompt("Ingresá el apellido del alumno que buscas")
+//     let busqueda = registro.some((estudiante) => estudiante.apellido == buscarAlumno)
+//     // console.log(busqueda)
+//     if(busqueda == true){
+//         console.log("Tu amigo está logueado")
+//     }else{
+//         console.log("Tu amigo no está logueado¡ Invitalo!")
+//     }
+// }
+
+// function buscarAmigo(){
+//     const aplellidoIngresado = document.getElementById("apellidoBuscado")
+//     const buscarEstudianteBtn = document.getElementById("buscarEstudiante")
+    
+// }
 
 //Función menu:
 function menu(opcionSeleccionada){
@@ -165,7 +213,7 @@ function menu(opcionSeleccionada){
     }
 }
 
-let salir 
-while(salir!= true){
-    iniciar()
-}
+// let salir 
+// while(salir!= true){
+//     iniciar()
+// }

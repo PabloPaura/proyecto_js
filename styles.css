@@ -2,46 +2,53 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: rgba(0, 0, 0, 0.9);
-    color: rgb(219, 198, 198);
+    
+}
+
+body{
+    background-color: #D9D9D9;
+    color: #373339e5;
+}
+header{
+    background-color:  #373339e5;
 }
 
 h1{
     font-size: 3em;
-    text-align: center;
+    text-align: center; 
     margin-bottom: 3rem;
 }
-.card{
+#alumnosCards{
     display: grid;
-    grid-template-columns: repeat(3,1fr);
-   
+    grid-template-columns: repeat(4,1fr);
+    align-items: center;
+    gap: 2rem;
+    background-color: #D9D9D9;
 }
 .card{
-    width: 80%;
-    max-width: 200px;
-    max-height: 300px;
-    margin: 3rem;
-    border: 2px solid white;
-    border-radius: 4%;
-    gap: 2rem;
-    background-color: cornflowerblue;
-    color:rgb(219, 198, 198);
-    text-align: center;
+    background-color:  #373339e5;
+    color:#D9D9D9;
 }
+.list-group-item{
+    background-color: #373339e5;
+    color:#D9D9D9;
+}
+
 
 .formRegistro{
     width: 500px;
     padding: 3rem;
     margin: auto;
-    background-color: rgba(234, 225, 215, 0.644);
+    background-color: #373339e5;
     border-radius: 4px;
 }
 
 h4{
     font-size: 2em;
     margin-bottom: 2rem;
-    color:rgba(255, 248, 220, 0.786);  
+    color: #373339e5;
     text-align: center; 
+    margin-top: 2rem;
 }
 .controles{
     width: 100%;
@@ -54,9 +61,50 @@ h4{
     font-size: 1.5em;
 }
 .formRegistro .boton{
-    width: 100%;
+    width: 50%;
     border: none;
+    border-radius: 5px;
     margin: 1.5rem 0;
-    padding: 1rem;
+    padding: 0.5rem;
     font-size: 1.5em;
+}
+.buscadorRegistro{
+    width: 500px;
+    padding: 3rem;
+    margin: auto;
+    background-color:  #373339e5;
+    border-radius: 4px;
+}
+.buscadorRegistro .boton{
+    width: 50%;
+    border: none;
+    border-radius: 5px;
+    margin: 1.5rem 0;
+    padding: 0.5rem;
+    font-size: 1.5em;
+}
+
+.promRegistro{
+    width: 500px;
+    padding: 3rem;
+    margin: auto;
+    background-color: #373339e5;
+    border-radius: 4px;
+}
+.promRegistro .boton{
+    width: 50%;
+    border: none;
+    border-radius: 5px;
+    margin: 1.5rem 0;
+    padding: 0.5rem;
+    font-size: 1.5em;
+}
+footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: #373339e5;
+}
+.redes__img{
+    margin: 2rem 3rem;
 }
