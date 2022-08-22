@@ -5,18 +5,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/c488cdd776.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="styles.css">
-    <title>Desafio ciclos</title>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <title>Proyecto JS</title>
 </head>
 <body>
   <header>
     <picture>
-      <img src="./assets/Icono.svg" alt="Logo de maestro en escritorio">
+      <img class="icon" src="./assets/Icono.svg" alt="Logo de maestro en escritorio">
     </picture>
+    <div class="grupos">
+      <h5>Armar Grupo</h5>
+        <a href="#" target="_blank">
+            <img class="logoGrupos" src="assets/iconoGrupo.jpg" alt="Icono de grupo">
+        </a>      
+    </div>
+    <div class="nerdiGrafiti">
+      <h5>GrafitiMode</h5>
+    <button class="boton"><i class="fa-solid fa-spray-can"></i></button>  
+    <h5>NerdyMode</h5>
+    <button class="boton"><i class="fa-solid fa-glasses"></i></button>
+  </div>
   </header>
-    <h1>Proyecto JS-Red social para estudiantes</h1>
+
+  <h1>Proyecto JS-Red social para estudiantes</h1>
+
+  <!-- Registro Alumnos para cards -->
     <h4>Formulario de registro</h4>
     <section class="formRegistro">
+      <div class="controlesImputs">
         <input class="controles" type="text" name="nombre" id="nombreIngresado" placeholder="Ingresá tu nombre">
         <input class="controles" type="text" name="apellido" id="apellidoIngresado" placeholder="Ingresá tu apellido">
         <input class="controles" type="text" name="edad" id="edadIngresada" placeholder="Ingresá tu edad">
@@ -24,32 +42,46 @@
         <input class="controles" type="text" name="hobbie" id="hobbieIngresado" placeholder="Ingresá tu hobbie">
         <input class="controles" type="text" name="materia" id="materiaIngresada" placeholder="Ingresá tu materia favorita">
         <input class="controles" type="text" name="insta" id="instaIngresado" placeholder="Ingresá tu instagram">
+      </div>
+      <div class="controlesBotones">
         <input class="boton" id= "guardarEstudiante" type="submit" value="Registrarme">
         <input class="boton" id= "mostrarGaleria" type="submit" value="Ver Galería">
         <input class="boton" id= "ocultarGaleria" type="submit" value="Ocultar Galería">
-        <input class="boton" id= "grupoCompañeros" type="submit" value="Crear Grupo">
+      </div>
 
+<!-- Galería       -->
     </section>
     <h4>Galería de compañeros</h4>
-    <div id="alumnosCards">
-      
+    <div id="alumnosCards">     
     </div>
-
+<!-- Buscar Amigos -->
    
-
     <h4>Buscador de amigos</h4>
     <section class="buscadorRegistro">
       <input class="controles" type="text" name="apellido" id="apellidoBuscado" placeholder="Ingresá el apellido de tu amigo">
       <input class="boton" id= "buscarEstudiante" type="submit" value="Buscar">
+      <input class="boton" id= "mostrarListado" type="submit" value="Mostrar Lista">
     </section>
+
+    <!-- Buscar Hobbies afines: -->
+
+    <h4>Buscador de hobbies</h4>
+    <section class="buscadorHobbie">
+      <input class="controles" type="text" name="hobbie" id="hobbieBuscado" placeholder="Ingresá el hobbie a buscar">
+      <input class="boton" id= "buscarHobbie" type="submit" value="Buscar">
+      <input class="boton" id= "listadoHobbies" type="submit" value="Mostrar hobbies">
+    </section>
+
+<!-- Calculador de promedios -->
+
     <h4>Calculador de promedios</h4>
     <section class="promRegistro">
       <input class="controles" type="text" name="cantNotas" id="cantNotas" placeholder="Ingresá la cantidad de notas">
       <input class="controles" type="text" name="notaIngresada" id="notaIngresada" placeholder="Ingresá las notas">
       <input class="boton" id= "calcPromedio" type="submit" value="Calcular">
-
     </section>
     
+<!-- Modal para alumnos-->
 
 
 
@@ -63,6 +95,8 @@
       </a>
 </div>
 </footer>
-    <script src="proyecto.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/luxon@2.3.0/build/global/luxon.min.js"></script>
+<script src="proyecto.js"></script>
+   
 </body>
 </html> 

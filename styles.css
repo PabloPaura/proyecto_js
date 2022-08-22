@@ -11,6 +11,13 @@ body{
 }
 header{
     background-color:  #373339e5;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+header .icon{
+    height: 100px;
+    margin:1.5rem;
 }
 
 h1{
@@ -21,9 +28,11 @@ h1{
 #alumnosCards{
     display: grid;
     grid-template-columns: repeat(4,1fr);
+    justify-content: center;
     align-items: center;
     gap: 2rem;
     background-color: #D9D9D9;
+    margin-left: 8rem;
 }
 .card{
     background-color:  #373339e5;
@@ -60,7 +69,23 @@ h4{
     border: 1px solid black;
     font-size: 1.5em;
 }
+
+.controlesImputs{
+    display: flex;
+    flex-direction: column;
+}
+
+.controlesBotones .boton{
+    display: flex;
+    flex-direction: column;
+    background: #f7a2a1;
+}
 .formRegistro .boton{
+    background: hsla(0, 87%, 79%, 1);
+    background: linear-gradient(90deg, hsla(0, 87%, 79%, 1) 0%, hsla(6, 77%, 85%, 1) 100%);
+    background: -moz-linear-gradient(90deg, hsla(0, 87%, 79%, 1) 0%, hsla(6, 77%, 85%, 1) 100%);
+    background: -webkit-linear-gradient(90deg, hsla(0, 87%, 79%, 1) 0%, hsla(6, 77%, 85%, 1) 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#F89999", endColorstr="#F6C0BA", GradientType=1 );
     width: 50%;
     border: none;
     border-radius: 5px;
@@ -76,6 +101,11 @@ h4{
     border-radius: 4px;
 }
 .buscadorRegistro .boton{
+    background: hsla(0, 87%, 79%, 1);
+    background: linear-gradient(90deg, hsla(0, 87%, 79%, 1) 0%, hsla(6, 77%, 85%, 1) 100%);
+    background: -moz-linear-gradient(90deg, hsla(0, 87%, 79%, 1) 0%, hsla(6, 77%, 85%, 1) 100%);
+    background: -webkit-linear-gradient(90deg, hsla(0, 87%, 79%, 1) 0%, hsla(6, 77%, 85%, 1) 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#F89999", endColorstr="#F6C0BA", GradientType=1 );
     width: 50%;
     border: none;
     border-radius: 5px;
@@ -92,6 +122,11 @@ h4{
     border-radius: 4px;
 }
 .promRegistro .boton{
+    background: hsla(0, 87%, 79%, 1);
+    background: linear-gradient(90deg, hsla(0, 87%, 79%, 1) 0%, hsla(6, 77%, 85%, 1) 100%);
+    background: -moz-linear-gradient(90deg, hsla(0, 87%, 79%, 1) 0%, hsla(6, 77%, 85%, 1) 100%);
+    background: -webkit-linear-gradient(90deg, hsla(0, 87%, 79%, 1) 0%, hsla(6, 77%, 85%, 1) 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#F89999", endColorstr="#F6C0BA", GradientType=1 );
     width: 50%;
     border: none;
     border-radius: 5px;
@@ -99,6 +134,28 @@ h4{
     padding: 0.5rem;
     font-size: 1.5em;
 }
+
+.buscadorHobbie{
+    width: 500px;
+    padding: 3rem;
+    margin: auto;
+    background-color:  #373339e5;
+    border-radius: 4px;
+}
+.buscadorHobbie .boton{
+    background: hsla(0, 87%, 79%, 1);
+    background: linear-gradient(90deg, hsla(0, 87%, 79%, 1) 0%, hsla(6, 77%, 85%, 1) 100%);
+    background: -moz-linear-gradient(90deg, hsla(0, 87%, 79%, 1) 0%, hsla(6, 77%, 85%, 1) 100%);
+    background: -webkit-linear-gradient(90deg, hsla(0, 87%, 79%, 1) 0%, hsla(6, 77%, 85%, 1) 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#F89999", endColorstr="#F6C0BA", GradientType=1 );
+    width: 50%;
+    border: none;
+    border-radius: 5px;
+    margin: 1.5rem 0;
+    padding: 0.5rem;
+    font-size: 1.5em;
+}
+
 footer{
     display: flex;
     flex-direction: row;
@@ -107,4 +164,52 @@ footer{
 }
 .redes__img{
     margin: 2rem 3rem;
+}
+.edadMenor{
+    color:#609a3f
+}
+.edadMayor{
+    color:#448ee3e0
+}
+.nerdiGrafiti{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    
+}
+.nerdiGrafiti .boton{
+    background: hsla(0, 87%, 79%, 1);
+    background: linear-gradient(90deg, hsla(0, 87%, 79%, 1) 0%, hsla(6, 77%, 85%, 1) 100%);
+    background: -moz-linear-gradient(90deg, hsla(0, 87%, 79%, 1) 0%, hsla(6, 77%, 85%, 1) 100%);
+    background: -webkit-linear-gradient(90deg, hsla(0, 87%, 79%, 1) 0%, hsla(6, 77%, 85%, 1) 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#F89999", endColorstr="#F6C0BA", GradientType=1 );
+    height: 100px;  
+    border: none;
+    border-radius: 50%;
+    margin: 1.5rem ;
+    padding: 0.5rem 3rem;
+    font-size: 2em;
+}
+
+.nerdiGrafiti h5{
+    color:#D9D9D9;
+    margin: 3rem 0.5rem;
+    padding: 0.5rem;
+}
+
+.grupos{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.grupos .logoGrupos{
+    border-radius: 50%;
+    height: 100px;
+    margin: 1.5rem;
+}
+.grupos h5{
+    color:#D9D9D9;
+    margin: 3rem 0.5rem;
+    padding: 0.5rem;
 }
