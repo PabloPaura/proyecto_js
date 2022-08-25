@@ -131,7 +131,9 @@ let buscarAlumnoBtn = document.getElementById("buscarEstudiante")
 let buscarHobbieBtn = document.getElementById("buscarHobbie")
 let hobbieBuscado = document.getElementById("hobbieBuscado")
 let listaHobbiesBtn = document.getElementById("listadoHobbies" )
-
+//Modo grafiti y nerdy:
+let grafitiBtn = document.getElementById("btnGrafiti")
+let nerdyBtn = document.getElementById("btnNerdy")
 
 //Buscar hobbies afines con nulish:
 
@@ -149,6 +151,12 @@ verListaBtn.addEventListener("click", mostrarListadoAlumnos)
 buscarAlumnoBtn.addEventListener("click", buscarAmigo)
 buscarHobbieBtn.addEventListener("click", coincidirHobbie)
 listaHobbiesBtn.addEventListener("click", mostrarHobbiesAlumnos)
+grafitiBtn.addEventListener("click", ()=>{
+    document.body.style.backgroundImage = "url(assets/grafiti1.jpg)"
+})
+nerdyBtn.addEventListener("click", ()=>{
+    document.body.style.backgroundImage = "url(assets/nerdyy.jpg)"
+})
 
 //Plantilla para crear nuevo estudiante:(Agrego op ternario para cambiar color de edad)
 
@@ -250,4 +258,22 @@ function mostrarHobbiesAlumnos(){
 
             }
         
-   
+//Función reloj:
+let html = document.getElementById("tiempo");
+setInterval(function(){
+    tiempo = new Date();
+    horas = tiempo.getHours();
+    minutos = tiempo.getMinutes();
+    segundos = tiempo.getSeconds();
+
+    if(horas<10)
+        horas = "0"+horas;
+    if(minutos<10)
+        minutos = "0"+minutos;
+    if(segundos<10)
+        segundos = "0"+segundos;
+
+    html.innerHTML = horas+" : "+minutos+" : "+segundos;
+
+}, 1000);
+

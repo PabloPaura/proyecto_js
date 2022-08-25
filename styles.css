@@ -9,6 +9,15 @@ body{
     background-color: #D9D9D9;
     color: #373339e5;
 }
+
+.nerdyGrafiti{
+    background-image: url(assets/grafiti1.jpg);
+}
+
+#alumnosCards{
+    background-color:#D9D9D9;
+    /* background-image: url(assets/grafiti1.jpg); */
+}
 header{
     background-color:  #373339e5;
     display: flex;
@@ -212,4 +221,24 @@ footer{
     color:#D9D9D9;
     margin: 3rem 0.5rem;
     padding: 0.5rem;
+}
+
+.seccionReloj{
+    
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 2rem;
+}
+.reloj{
+   display: inline-block;
+   background: rgba(255, 248, 220, 0.786);
+   color: #373339e5; 
+   font-weight: bold;
+   font-size: 3em;
+   border: 3px solid #373339e5;
+   border-radius: 4px;
+   margin: 0.5rem;
+   padding: 0.5rem;
 }
