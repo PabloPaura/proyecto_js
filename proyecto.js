@@ -82,14 +82,27 @@ class Estudiante{
 }
 
  //Instanciación de objetos:
-const estudiante1 = new Estudiante("1","Pablo", "Paura", 48, "pp@mail.com", "Tocar el piano", "Matemática", "@pablop", "assets/avatar_1.jpg")
-const estudiante2 = new Estudiante("2","Lorena", "Suarez", 41, "losu@mail.com", "Ciclismo", "Lengua", "@lgon", "assets/avatar_4.jpg")
-const estudiante3 = new Estudiante("3","Adrián", "Gonzalez", 36, "adrigon@mail.com", "Jugar al fútbol", "Naturales", "@adrigon", "assets/avatar_2.jpg")
-const estudiante4 = new Estudiante("4","Lucía", "Mendez", 44, "lumendez@mail.com", "Cocinar", "Música", "@lulimen", "assets/avatar_5.jpg")
-const estudiante5 = new Estudiante("5","Marcelo", "Pérez", 29, "marceloperez@mail.com", "Ir al gym", "Química", "@marcepp", "assets/avatar_3.jpg")
-const estudiante6 = new Estudiante("6","Mariela", "Gonzalez", 40, "marigonzalez@mail.com", "Fotografía", "Música", "@marigon", "assets/avatar_7.jpg")
-const estudiante7 = new Estudiante("7","Cintia", "Basualdo", "38", "cinbasualdo@mail.com", "Viajar", "Geografía", "@cinbas", "assets/avatar_4.jpg")
-const estudiante8 = new Estudiante("8","Mariano", "Villanueva", "26", "mvilla@mail.com", "Manejar", "Literatura", "@mvilla", "assets/avatar_1.jpg")
+// const estudiante1 = new Estudiante("1","Pablo", "Paura", 48, "pp@mail.com", "Tocar el piano", "Matemática", "@pablop", "assets/avatar_1.jpg")
+// const estudiante2 = new Estudiante("2","Lorena", "Suarez", 41, "losu@mail.com", "Andar en bici", "Lengua", "@lgon", "assets/avatar_4.jpg")
+// const estudiante3 = new Estudiante("3","Adrián", "Gonzalez", 36, "adrigon@mail.com", "Jugar al fútbol", "Naturales", "@adrigon", "assets/avatar_2.jpg")
+// const estudiante4 = new Estudiante("4","Lucía", "Mendez", 44, "lumendez@mail.com", "Cocinar", "Música", "@lulimen", "assets/avatar_5.jpg")
+// const estudiante5 = new Estudiante("5","Marcelo", "Pérez", 29, "marceloperez@mail.com", "Ir al gym", "Química", "@marcepp", "assets/avatar_3.jpg")
+// const estudiante6 = new Estudiante("6","Mariela", "Gonzalez", 40, "marigonzalez@mail.com", "Fotografía", "Música", "@marigon", "assets/avatar_7.jpg")
+// const estudiante7 = new Estudiante("7","Cintia", "Basualdo", "38", "cinbasualdo@mail.com", "Viajar", "Geografía", "@cinbas", "assets/avatar_4.jpg")
+// const estudiante8 = new Estudiante("8","Mariano", "Villanueva", "26", "mvilla@mail.com", "Manejar", "Literatura", "@mvilla", "assets/avatar_1.jpg")
+
+
+//Fetch JSON estudantes:
+let rgistro = []
+fetch("estudiantes.json")
+.then(response => response.json())
+.then(data =>{
+    console.log(data)
+    for(let estudiante of data){
+        let nuevoCard = new Estudiante(estudiante.id, estudiante.nombre, estudiante.apellido, estudiante.edad, estudiante.correo, estudiante.hobbie, estudiante.materiaFavorita, estudiante.insta, estudiante.imagen)
+        registro.push(nuevoCard)
+    }
+})
 
  //Arrays declarados:
 let registro = []
@@ -131,7 +144,7 @@ let buscarAlumnoBtn = document.getElementById("buscarEstudiante")
 let buscarHobbieBtn = document.getElementById("buscarHobbie")
 let hobbieBuscado = document.getElementById("hobbieBuscado")
 let listaHobbiesBtn = document.getElementById("listadoHobbies" )
-//Modo grafiti y nerdy:
+//Modo grafiti y nerdy: 
 let grafitiBtn = document.getElementById("btnGrafiti")
 let nerdyBtn = document.getElementById("btnNerdy")
 

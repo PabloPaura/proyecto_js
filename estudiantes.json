@@ -1,0 +1,101 @@
+[
+    {
+        "id": 1,
+        "nombre": "Pablo",
+        "apellido": "Paura",
+        "edad": 48,
+        "correo": "pp@mail.com",
+        "hobbie": "Tocar el piano",
+        "materiaFavorita": "Matemática",
+        "insta": "@pablop",
+        "imagen": "assets/avatar_1.jpg"
+    },
+    {
+        "id": 2,
+        "nombre": "Lorena",
+        "apellido": "Suarez",
+        "edad": 41,
+        "correo": "losu@mail.com",
+        "hobbie": "Andar en bici", 
+        "materiaFavorita": "Lengua",
+        "insta": "@lgon",
+        "imagen": "assets/avatar_4.jpg"
+    },
+    {
+        "id": 3,
+        "nombre": "Adrián",
+        "apellido": "González",
+        "edad": 36,
+        "correo": "adrigon@mail.com",
+        "hobbie": "Jugar al fútbol",
+        "materiaFavorita": "Naturales",
+        "insta": "@adrigon",
+        "imagen": "assets/avatar_2.jpg"
+    },
+    {
+        "id": 4,
+        "nombre": "Lucía",
+        "apellido": "Mendez",
+        "edad": 44,
+        "correo": "lumendez@mail.com",
+        "hobbie": "Cocinar",
+        "materiaFavorita": "Música",
+        "insta": "@lulimen",
+        "imagen": "assets/avatar_5.jpg"
+    },
+    {
+        "id": 5,
+        "nombre": "Marcelo",
+        "apellido": "Perez",
+        "edad": 29,
+        "correo": "marceloperez@mail.com",
+        "hobbie": "Ir al gym",
+        "materiaFavorita": "Química",
+        "insta": "@marcepp",
+        "imagen": "assets/avatar_3.jpg"
+    },
+    {
+        "id": 6,
+        "nombre": "Maiela",
+        "apellido": "González",
+        "edad": 40,
+        "correo": "marigonzalez@mail.com",
+        "hobbie": "Fotografía",
+        "materiaFavorita": "Música",
+        "insta": "@marigon",
+        "imagen": "assets/avatar_7.jpg"
+    },
+    {
+        "id": 7,
+        "nombre": "Cintia",
+        "apellido": "Basualdo",
+        "edad": 39,
+        "correo": "cinbasualdo@mail.com",
+        "hobbie": "Viajar",
+        "materiaFavorita": "Geografía",
+        "insta": "@cinbas",
+        "imagen": "assets/avatar_4.jpg"
+    },
+    {
+        "id": 8,
+        "nombre": "Mariano",
+        "apellido": "Villanueva",
+        "edad": 26,
+        "correo": "mvilla@mail.com",
+        "hobbie": "Manejar",
+        "materiaFavorita": "Literatura",
+        "insta": "@mvilla",
+        "imagen": "assets/avatar_1.jpg"
+    },
+    {
+        "id": 9,
+        "nombre": "Julio",
+        "apellido": "Estevez",
+        "edad": 30,
+        "correo": "julitoe@mail.com",
+        "hobbie": "Andar en skate",
+        "materiaFavorita": "Ed física",
+        "insta": "@julitoe",
+        "imagen": "assets/avatar_1.jpg"
+    }
+]
