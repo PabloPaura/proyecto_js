@@ -110,14 +110,14 @@ let grupoCompañeros = []
 
 //Lógica para inicializar galería:
 
-if(localStorage.getItem("registro")){
-    registro = JSON.parse(localStorage.getItem("registro"))
-    console.log(registro)
-}else{
-    registro.push(estudiante1, estudiante2, estudiante3, estudiante4, estudiante5, estudiante6, estudiante7, estudiante8)
-    localStorage.setItem("registro", JSON.stringify(registro))
-    console.log(registro)
-}
+// if(localStorage.getItem("registro")){
+//     registro = JSON.parse(localStorage.getItem("registro"))
+//     console.log(registro)
+// }else{
+//     registro.push(estudiante1, estudiante2, estudiante3, estudiante4, estudiante5, estudiante6, estudiante7, estudiante8)
+//     localStorage.setItem("registro", JSON.stringify(registro))
+//     console.log(registro)
+// }
 
 //Lógica para armar grupo de compañeros:
 if(localStorage.getItem("grupo")){
@@ -147,6 +147,8 @@ let listaHobbiesBtn = document.getElementById("listadoHobbies" )
 //Modo grafiti y nerdy: 
 let grafitiBtn = document.getElementById("btnGrafiti")
 let nerdyBtn = document.getElementById("btnNerdy")
+//Boton conoceme:
+let conocemeBtn = document.getElementById("botonC${estudiante.id}")
 
 //Buscar hobbies afines con nulish:
 
@@ -242,6 +244,7 @@ function mostrarListadoAlumnos(){
                 imageWidth: "100px"         
             })
 }
+
 
 //Función mostrar listado de hobbies:
 

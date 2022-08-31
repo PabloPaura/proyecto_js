@@ -16,7 +16,7 @@
       <img class="icon" src="./assets/Icono.svg" alt="Logo de maestro en escritorio">
     </picture>
     <div class="grupos">
-      <h5>Armar Grupo</h5>
+      <h5>Ver Grupo</h5>
         <a href="#" target="_blank">
             <img class="logoGrupos" src="assets/iconoGrupo.jpg" alt="Icono de grupo">
         </a>      
@@ -39,7 +39,13 @@
   </section>
 
   <!-- Registro Alumnos para cards -->
-    <h4>Formulario de registro</h4>
+  <h2>¡Bienvenidos!</h2>
+  <p class="parrafoInicio">¡Bienvenido! Estás en la Red Social más piola que vas a encontrar en toda la web. Aquí vas a encontrar muchas opciones para contactarte con tus compañeros, armar grupos de trabajo y divertirte. Junto a Jorge y sus amigos podrás realizar varias tareas como calcular tu promedio por ejemplo.
+    Buscá a tus amigos y si no los encontrás en la galería de compañeros, invitalos para que se unan! 
+    Si querés saber más de Jorge, visitá <a class="enlaceEscuelita" href="https://la-escuelita-de-jorge.netlify.app/" target="_blank">La escuelita de Jorge</a> 
+    Esperamos que lo pases de 10 durante tu visita. 
+  </p>
+  <h4>Formulario de registro</h4>
     <section class="formRegistro">
       <div class="controlesImputs">
         <input class="controles" type="text" name="nombre" id="nombreIngresado" placeholder="Ingresá tu nombre">
@@ -61,23 +67,25 @@
     <h4>Galería de compañeros</h4>
     <div id="alumnosCards" class="galeria">     
     </div>
-<!-- Buscar Amigos -->
-   
-    <h4>Buscador de amigos</h4>
-    <section class="buscadorRegistro">
-      <input class="controles" type="text" name="apellido" id="apellidoBuscado" placeholder="Ingresá el apellido de tu amigo">
-      <input class="boton" id= "buscarEstudiante" type="submit" value="Buscar">
-      <input class="boton" id= "mostrarListado" type="submit" value="Mostrar Lista">
-    </section>
+    <div class="seccionBuscadores">
+     <!-- Buscar Amigos -->
+     <section class="buscadorRegistro">
+       <h4 class="tituloBuscar">Buscador de amigos</h4>
+       <input class="controles" type="text" name="apellido" id="apellidoBuscado" placeholder="Ingresá el apellido de tu amigo">
+       <input class="boton" id= "buscarEstudiante" type="submit" value="Buscar">
+       <input class="boton" id= "mostrarListado" type="submit" value="Mostrar Lista">
+     </section>
+     <!-- Buscar Hobbies afines: -->
+     
+     <section class="buscadorHobbie">
+         <h4 class="tituloBuscar">Buscador de hobbies</h4>
+         <input class="controles" type="text" name="hobbie" id="hobbieBuscado" placeholder="Ingresá el hobbie a buscar">
+         <input class="boton" id= "buscarHobbie" type="submit" value="Buscar">
+         <input class="boton" id= "listadoHobbies" type="submit" value="Mostrar hobbies">
+       </section>
+   </div>
 
-    <!-- Buscar Hobbies afines: -->
-
-    <h4>Buscador de hobbies</h4>
-    <section class="buscadorHobbie">
-      <input class="controles" type="text" name="hobbie" id="hobbieBuscado" placeholder="Ingresá el hobbie a buscar">
-      <input class="boton" id= "buscarHobbie" type="submit" value="Buscar">
-      <input class="boton" id= "listadoHobbies" type="submit" value="Mostrar hobbies">
-    </section>
+ 
 
 <!-- Calculador de promedios -->
 
