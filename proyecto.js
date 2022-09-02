@@ -128,10 +128,10 @@ function agregarAgrupo(estudiante){
     
     let estudianteAgregado = grupoCompañeros.indexOf(estudiante)
     console.log(estudianteAgregado)
-    console.log(grupoCompañeros);
+    // console.log(grupoCompañeros);
          if (estudianteAgregado == -1){
              grupoCompañeros.push(estudiante)
-             console.log(grupoCompañeros);
+            //  console.log(grupoCompañeros);
              //Cargar al storage
              localStorage.setItem("grupo", JSON.stringify(grupoCompañeros))       
          }else{
@@ -163,14 +163,14 @@ function guardarEstudiante(){
         
          modalBody.innerHTML += `
              <div class="card border-primary mb-3" id ="grupoCompañeros${estudianteAgregado.id}" style="max-width: 540px;">
-                 <img class="card-img-top" src="${estudianteAgregado.imagen}" alt="${estudianteAgregado.nombre}">
+                 <img class="card-img-top" src="${estudianteAgregado.imagen}" alt="">
                 <div class="card-body">
-                         <h4 class="card-title">${estudianteAgregado.nombre}</h4>
-                         <h4 class="card-title">${estudianteAgregado.apellido}</h4>
+                         <h4 class="card-title">${estudianteAgregado.nombre} ${estudianteAgregado.apellido}</h4>
+                        
                     
-                         <p class="card-text">$${estudianteAgregado.edad}</p> 
-                         <p class="card-text">$${estudianteAgregado.correo}</p> 
-                         <p class="card-text">$${estudianteAgregado.insta}</p> 
+                         <p class="card-text">Edad: ${estudianteAgregado.edad}</p> 
+                         <p class="card-text">Correo: ${estudianteAgregado.correo}</p> 
+                         <p class="card-text">Instagram: ${estudianteAgregado.insta}</p> 
                          <button class= "btn btn-danger" id="botonEliminar${estudianteAgregado.id}"><i class="fas fa-trash-alt"></i></button>
                  </div>    
             
@@ -178,28 +178,29 @@ function guardarEstudiante(){
              </div>
      `     
  })
+ grupoCompañeros.forEach((estudianteAgregado, indice)=>{
+    //capturamos el boton sin usar variable y adjuntamos evento
+    document.getElementById(`botonEliminar${estudianteAgregado.id}`).addEventListener('click', () => {
+        //Dentro del evento:
+        console.log(`El alumno ${estudianteAgregado.nombre} ${estudianteAgregado.apellido} ha sido eliminado del grupo de tabajo`)
+        //Eliminamos del DOM
+        let cardEstudiante = document.getElementById(`estudianteAgregado${estudianteAgregado.id}`)
+        console.log(cardEstudiante);
+        cardEstudiante.removeChild()
+
+        //Eliminamos del array compras
+        grupoCompañeros.splice(indice, 1)
+        console.log(grupoCompañeros)
+        localStorage.setItem("grupo", JSON.stringify(grupoCompañeros))
+        armarGrupo(grupoCompañeros)
+    })  
+
+})
 } 
 
-//Esta es la seccion comentada que me tira error en consola:
 
-// grupoCompañeros.forEach((estudianteAgregado, indice)=>{
-//     //capturamos el boton sin usar variable y adjuntamos evento
-//     document.getElementById(`botonEliminar${estudianteAgregado.id}`).addEventListener('click', () => {
-//         //Dentro del evento:
-//         console.log(`El alumno ${estudianteAgregado.nombre} ${estudianteAgregado.apellido} ha sido eliminado del grupo de tabajo`)
-//         //Eliminamos del DOM
-//         let cardEstudiante = document.getElementById(`estudianteAgregado${estudianteAgregado.id}`)
-//         console.log(cardEstudiante);
-//         cardEstudiante.remove()
 
-//         //Eliminamos del array compras
-//         grupoCompañeros.splice(indice, 1)
-//         console.log(grupoCompañeros)
-//         localStorage.setItem("grupo", JSON.stringify(grupoCompañeros))
-//         armarGrupo(grupoCompañeros)
-//     })  
 
-// })
 
 function mostrarListadoAlumnos(){
     const listadoAlumnos = registro.map(estudiante => estudiante.nombre + " " + estudiante.apellido)
