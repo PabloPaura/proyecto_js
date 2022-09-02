@@ -37,9 +37,10 @@ let grupoCompañeros = JSON.parse(localStorage.getItem("grupo")) || []
 
 
 //Elementos DOM y variables:
+let mostrargrupoBtn = document.getElementById("verGrupo")
+
 let modalBody = document.getElementById("modal-body")
 
-let mostrargrupoBtn = document.getElementById("verGrupo")
 //Botón mostrar galería:
 let mostrarGaleriaBtn = document.getElementById("mostrarGaleria")
 //Boton guardar estudiante:
@@ -100,41 +101,43 @@ function mostrarGaleria(){
                                     <li class="list-group-item">Instagram: ${estudiante.insta}</li>
                                     </ul>
                                     <div class="card-body">
-                                    <button id"grupo${estudiante.id}" class="btn btn-light" >Agregar a grupo</button>
+                                    <button id="grupo${estudiante.id}" class="btn btn-light" >Agregar a grupo</button>
                                     </div>
                                 </div>`
         divEstudiantes.appendChild(nuevoCard)  
         
         // Botón agregar estudiante a un grupo:
-        // let botonAgregar = document.getElementById(`grupo${estudiante.id}`)
+        let botonAgregar = document.getElementById(`grupo${estudiante.id}`)
         // console.log(botonAgregar)
-        // botonAgregar.addEventListener("click", () =>{
-        //     agregarAgrupo(estudiante)
+        botonAgregar.addEventListener("click", () =>{
+             agregarAgrupo(estudiante)
             
-        // })
+         })
 
     })  
 }
 
 //Funciones:
 
+
+
 //Función agregar alumno a grupo:
 
-// function agregarAgrupo(estudiante){
-//     console.log(`${estudiante.nombre} ${estudiante.apellido} se ha agregado al grupo de trabajo!`)
+function agregarAgrupo(estudiante){
+    console.log(`${estudiante.nombre} ${estudiante.apellido} se ha agregado al grupo de trabajo!`)
     
-//     let estudianteAgregado = grupoCompañeros.indexOf(estudiante)
-//     console.log(estudianteAgregado)
-//     console.log(productosEnGrupo);
-//     // if (estudianteAgregado == -1){
-//     //     estudiantesEnGrupo.push(estudiante)
-//     //     console.log(estudiantesEnGrupo);
-//     //     //Cargar al storage
-//     //     localStorage.setItem("grupo", JSON.stringify(estudiantesEnGrupo))       
-//     // }else{
-//     //     console.log(`El alumno ${estudiante.nombre} se ha agregado al grupo de trabajo!`)}
+    let estudianteAgregado = grupoCompañeros.indexOf(estudiante)
+    console.log(estudianteAgregado)
+    console.log(grupoCompañeros);
+         if (estudianteAgregado == -1){
+             grupoCompañeros.push(estudiante)
+             console.log(grupoCompañeros);
+             //Cargar al storage
+             localStorage.setItem("grupo", JSON.stringify(grupoCompañeros))       
+         }else{
+            console.log(`El alumno ${estudiante.nombre} se ha agregado al grupo de trabajo!`)}
         
-//     }
+    }
 
 function guardarEstudiante(){
     let nombreImput = document.getElementById("nombreIngresado")
@@ -153,28 +156,51 @@ function guardarEstudiante(){
     
 }
 
-// // function armarGrupo() {
+ function armarGrupo(grupoCompañeros) {
 
-// //     modalBody.innerHTML = " "  
-// //     productosDelStorage.forEach((productoCarrito) => {
+     modalBody.innerHTML = " "  
+    grupoCompañeros.forEach((estudianteAgregado) => {
         
-// //         modalBody.innerHTML += `
-// //             <div class="card border-primary mb-3" id ="productoCarrito${productoCarrito.id}" style="max-width: 540px;">
-// //                 <img class="card-img-top" src="${productoCarrito.imagen}" alt="${productoCarrito.titulo}">
-// //                 <div class="card-body">
-// //                         <h4 class="card-title">${productoCarrito.titulo}</h4>
+         modalBody.innerHTML += `
+             <div class="card border-primary mb-3" id ="grupoCompañeros${estudianteAgregado.id}" style="max-width: 540px;">
+                 <img class="card-img-top" src="${estudianteAgregado.imagen}" alt="${estudianteAgregado.nombre}">
+                <div class="card-body">
+                         <h4 class="card-title">${estudianteAgregado.nombre}</h4>
+                         <h4 class="card-title">${estudianteAgregado.apellido}</h4>
                     
-// //                         <p class="card-text">$${productoCarrito.precio}</p> 
-// //                         <button class= "btn btn-danger" id="botonEliminar${productoCarrito.id}"><i class="fas fa-trash-alt"></i></button>
-// //                 </div>    
+                         <p class="card-text">$${estudianteAgregado.edad}</p> 
+                         <p class="card-text">$${estudianteAgregado.correo}</p> 
+                         <p class="card-text">$${estudianteAgregado.insta}</p> 
+                         <button class= "btn btn-danger" id="botonEliminar${estudianteAgregado.id}"><i class="fas fa-trash-alt"></i></button>
+                 </div>    
             
             
-// //             </div>
-// //     `
-    
-      
-// // })
-// } 
+             </div>
+     `     
+ })
+} 
+
+//Esta es la seccion comentada que me tira error en consola:
+
+// grupoCompañeros.forEach((estudianteAgregado, indice)=>{
+//     //capturamos el boton sin usar variable y adjuntamos evento
+//     document.getElementById(`botonEliminar${estudianteAgregado.id}`).addEventListener('click', () => {
+//         //Dentro del evento:
+//         console.log(`El alumno ${estudianteAgregado.nombre} ${estudianteAgregado.apellido} ha sido eliminado del grupo de tabajo`)
+//         //Eliminamos del DOM
+//         let cardEstudiante = document.getElementById(`estudianteAgregado${estudianteAgregado.id}`)
+//         console.log(cardEstudiante);
+//         cardEstudiante.remove()
+
+//         //Eliminamos del array compras
+//         grupoCompañeros.splice(indice, 1)
+//         console.log(grupoCompañeros)
+//         localStorage.setItem("grupo", JSON.stringify(grupoCompañeros))
+//         armarGrupo(grupoCompañeros)
+//     })  
+
+// })
+
 function mostrarListadoAlumnos(){
     const listadoAlumnos = registro.map(estudiante => estudiante.nombre + " " + estudiante.apellido)
             console.log(listadoAlumnos)
@@ -191,11 +217,9 @@ function mostrarListadoAlumnos(){
             })
 }
 
-
-
-//Función mostrar grupo de alumnos:
-
-
+mostrargrupoBtn.addEventListener("click", ()=>{
+    armarGrupo(grupoCompañeros)
+})
 
 function ocultarGaleria(){
     divGaleria.innerHTML =""
