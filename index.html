@@ -16,10 +16,10 @@
       <img class="icon" src="./assets/Icono.svg" alt="Logo de maestro en escritorio">
     </picture>
     <div class="grupos">
-      <h5>Ver Grupo</h5>
-        <a href="#" target="_blank">
-            <img class="logoGrupos" src="assets/iconoGrupo.jpg" alt="Icono de grupo">
-        </a>      
+      <h5 id=>Ver Grupo</h5>
+      <button id="verGrupo">
+        <img class="imgBoton" src="assets/iconoGrupo.jpg" alt="Grupo de compañeros">
+      </button> 
     </div>
     <div class="nerdiGrafiti">
       <h5>GrafitiMode</h5>
@@ -29,7 +29,7 @@
   </div>
   </header>
 
-  <h1>Proyecto JS-Red social para estudiantes</h1>
+  <h1>Red social para estudiantes</h1>
 
   <section class="seccionReloj">
     <div class="reloj">
@@ -67,6 +67,33 @@
     <h4>Galería de compañeros</h4>
     <div id="alumnosCards" class="galeria">     
     </div>
+
+    <!-- Modal para alumnos-->
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+  Launch static backdrop modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Grupo de trabajo</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="modal-body">
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div>
+    </div>
+  </div>
+</div>
+
     <div class="seccionBuscadores">
      <!-- Buscar Amigos -->
      <section class="buscadorRegistro">
@@ -96,8 +123,6 @@
       <input class="boton" id= "calcPromedio" type="submit" value="Calcular">
     </section>
     
-<!-- Modal para alumnos-->
-
 
 
 <footer>

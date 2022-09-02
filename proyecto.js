@@ -3,68 +3,6 @@
 //Con el icono "grupo" en el header, se podrá crear un grupo con una lógica similar a la de agregar productos a un carrito.
 //También una sección en la que con un alert puede mostrarse la lista de compañeros y una función para buscar amigos con un toast como respuesta. 
 
-//Código en revisión:
-//Funcion para iniciar el programa de opciones:
-// function iniciar(){
-//     let opcion = parseInt(prompt(`¿Qué querés hacer hoy?:
-//                         1- Agregarme al registro
-//                         2- Ver los perfiles de mis compañeros
-//                         3- Buscar un amigo
-//                         4- Borrar mi perfil
-//                         5- Ver lista de tareas semanales
-//                         6- Calcular mi promedio
-//                         0- Salir
-//                         `))
-//     menu(opcion)
-// } 
-//Función menu:
-// function menu(opcionSeleccionada){
-//     switch(opcionSeleccionada){
-//         case 0:
-//             salir = true
-//             alert(`Gracias por pasar por la galería, volvé pronto!`)
-//         break
-//         case 1:
-//             guardarEstudiante()
-//             for(let elem of registro){
-//                 console.log(`${elem.apellido}, ${elem.nombre} tiene ${elem.edad} años y le gusta mucho ${elem.materiaFavorita}`)
-//             } 
-//             alert(`Verás tus datos en consola`)
-//         break
-//         case 2:
-//             alert(`La lista completa de compañeros logueados la verás por consola`)
-//             const listadoAlumnos = registro.map(estudiante => estudiante.nombre + " " + estudiante.apellido)
-//             console.log(listadoAlumnos)
-//         break
-//         case 3:
-//             buscarAmigo()
-//             alert(`En consola verás si tu amigo es parte de nuestra galería`)
-//         break
-//         case 4:
-//         break
-//         case 5:
-//         break
-//         case 6:
-//             let notas;
-//             let promedio;
-//             let acumulador = 0;
-//             let nnotas = parseInt(prompt(`Ingresá la cantidad de notas que querés promediar`))
-//             for(i=0; i < nnotas; i++){
-//                 let notas = parseInt(prompt(`Ingresá la nota ` + i))
-//                 acumulador = acumulador + notas;        
-//             }           
-//             promedio = acumulador / nnotas;
-//             console.log(`Tu promedio es ${promedio}`)
-//             alert(`Podés consultar tu promedio en la consola`)
-//         break
-//         default:
-//             alert(`Ingresá una opción válida, del 0 al 6`)
-//     }
-// }
-// let salir 
-// while(salir!= true){
-//     iniciar()
-// }
 
  //Función constructora:
 class Estudiante{
@@ -81,17 +19,6 @@ class Estudiante{
     }
 }
 
- //Instanciación de objetos:
-// const estudiante1 = new Estudiante("1","Pablo", "Paura", 48, "pp@mail.com", "Tocar el piano", "Matemática", "@pablop", "assets/avatar_1.jpg")
-// const estudiante2 = new Estudiante("2","Lorena", "Suarez", 41, "losu@mail.com", "Andar en bici", "Lengua", "@lgon", "assets/avatar_4.jpg")
-// const estudiante3 = new Estudiante("3","Adrián", "Gonzalez", 36, "adrigon@mail.com", "Jugar al fútbol", "Naturales", "@adrigon", "assets/avatar_2.jpg")
-// const estudiante4 = new Estudiante("4","Lucía", "Mendez", 44, "lumendez@mail.com", "Cocinar", "Música", "@lulimen", "assets/avatar_5.jpg")
-// const estudiante5 = new Estudiante("5","Marcelo", "Pérez", 29, "marceloperez@mail.com", "Ir al gym", "Química", "@marcepp", "assets/avatar_3.jpg")
-// const estudiante6 = new Estudiante("6","Mariela", "Gonzalez", 40, "marigonzalez@mail.com", "Fotografía", "Música", "@marigon", "assets/avatar_7.jpg")
-// const estudiante7 = new Estudiante("7","Cintia", "Basualdo", "38", "cinbasualdo@mail.com", "Viajar", "Geografía", "@cinbas", "assets/avatar_4.jpg")
-// const estudiante8 = new Estudiante("8","Mariano", "Villanueva", "26", "mvilla@mail.com", "Manejar", "Literatura", "@mvilla", "assets/avatar_1.jpg")
-
-
 //Fetch JSON estudantes:
 let rgistro = []
 fetch("estudiantes.json")
@@ -106,28 +33,13 @@ fetch("estudiantes.json")
 
  //Arrays declarados:
 let registro = []
-let grupoCompañeros = []
+let grupoCompañeros = JSON.parse(localStorage.getItem("grupo")) || []
 
-//Lógica para inicializar galería:
-
-// if(localStorage.getItem("registro")){
-//     registro = JSON.parse(localStorage.getItem("registro"))
-//     console.log(registro)
-// }else{
-//     registro.push(estudiante1, estudiante2, estudiante3, estudiante4, estudiante5, estudiante6, estudiante7, estudiante8)
-//     localStorage.setItem("registro", JSON.stringify(registro))
-//     console.log(registro)
-// }
-
-//Lógica para armar grupo de compañeros:
-if(localStorage.getItem("grupo")){
-    grupoCompañeros = JSON.parse(localStorage.getItem("grupo"))
-}else{
-    localStorage.setItem("grupo", [])
-    console.log(grupoCompañeros)
-}
 
 //Elementos DOM y variables:
+let modalBody = document.getElementById("modal-body")
+
+let mostrargrupoBtn = document.getElementById("verGrupo")
 //Botón mostrar galería:
 let mostrarGaleriaBtn = document.getElementById("mostrarGaleria")
 //Boton guardar estudiante:
@@ -147,18 +59,15 @@ let listaHobbiesBtn = document.getElementById("listadoHobbies" )
 //Modo grafiti y nerdy: 
 let grafitiBtn = document.getElementById("btnGrafiti")
 let nerdyBtn = document.getElementById("btnNerdy")
-//Boton conoceme:
-let conocemeBtn = document.getElementById("botonC${estudiante.id}")
 
-//Buscar hobbies afines con nulish:
+let divEstudiantes = document.getElementById("alumnosCards")
+// divEstudiantes.setAttribute("class", "card")
 
-function coincidirHobbie(){
-    let buscarHobbie = registro.find(estudiante => estudiante.hobbie == hobbieBuscado) ?? "no hay alumnos con ese hobbie"
-    // console.log(buscarHobbie)
-}
+
 
 
 //Eventos:
+
 mostrarGaleriaBtn.addEventListener("click", mostrarGaleria)
 guardarEstudianteBtn.addEventListener("click", guardarEstudiante)
 ocultarGaleriaBtn.addEventListener("click", ocultarGaleria)
@@ -175,8 +84,7 @@ nerdyBtn.addEventListener("click", ()=>{
 
 //Plantilla para crear nuevo estudiante:(Agrego op ternario para cambiar color de edad)
 
-let divEstudiantes = document.getElementById("alumnosCards")
-divEstudiantes.setAttribute("class", "card")
+divEstudiantes.innerHTML = ""
 function mostrarGaleria(){
     registro.forEach((estudiante)=>{
         let nuevoCard = document.createElement("div")
@@ -188,25 +96,45 @@ function mostrarGaleria(){
                                     </div>
                                     <ul class="list-group list-group-flush">
                                     <li class="list-group-item ${estudiante.edad <= 40 ? "edadMenor" : "edadMayor"}">Edad: ${estudiante.edad}</li>
-                                    <li class="list-group-item">Hobbie: ${estudiante.hobbie}</li>
+                                    <li class="list-group-item">Correo: ${estudiante.correo}</li>
+                                    <li class="list-group-item">Instagram: ${estudiante.insta}</li>
                                     </ul>
                                     <div class="card-body">
-                                    <button type="button" class="btn btn-light" id"botonC${estudiante.id}">Conoceme</button>
-                                    <button type="button" class="btn btn-light" id"botonG${estudiante.id}">Agregar a grupo</button>
+                                    <button id"grupo${estudiante.id}" class="btn btn-light" >Agregar a grupo</button>
                                     </div>
                                 </div>`
         divEstudiantes.appendChild(nuevoCard)  
         
-        //Botón agregar estudiante a un grupo:
-        // let botonAgregar = document.getElementById(`boton${estudiante.id}`) 
+        // Botón agregar estudiante a un grupo:
+        // let botonAgregar = document.getElementById(`grupo${estudiante.id}`)
         // console.log(botonAgregar)
+        // botonAgregar.addEventListener("click", () =>{
+        //     agregarAgrupo(estudiante)
+            
+        // })
 
     })  
 }
 
-//Plantilla modal para alumnos (en construcción)
-
 //Funciones:
+
+//Función agregar alumno a grupo:
+
+// function agregarAgrupo(estudiante){
+//     console.log(`${estudiante.nombre} ${estudiante.apellido} se ha agregado al grupo de trabajo!`)
+    
+//     let estudianteAgregado = grupoCompañeros.indexOf(estudiante)
+//     console.log(estudianteAgregado)
+//     console.log(productosEnGrupo);
+//     // if (estudianteAgregado == -1){
+//     //     estudiantesEnGrupo.push(estudiante)
+//     //     console.log(estudiantesEnGrupo);
+//     //     //Cargar al storage
+//     //     localStorage.setItem("grupo", JSON.stringify(estudiantesEnGrupo))       
+//     // }else{
+//     //     console.log(`El alumno ${estudiante.nombre} se ha agregado al grupo de trabajo!`)}
+        
+//     }
 
 function guardarEstudiante(){
     let nombreImput = document.getElementById("nombreIngresado")
@@ -225,10 +153,28 @@ function guardarEstudiante(){
     
 }
 
-function ocultarGaleria(){
-    divGaleria.innerHTML =""
-}
+// // function armarGrupo() {
 
+// //     modalBody.innerHTML = " "  
+// //     productosDelStorage.forEach((productoCarrito) => {
+        
+// //         modalBody.innerHTML += `
+// //             <div class="card border-primary mb-3" id ="productoCarrito${productoCarrito.id}" style="max-width: 540px;">
+// //                 <img class="card-img-top" src="${productoCarrito.imagen}" alt="${productoCarrito.titulo}">
+// //                 <div class="card-body">
+// //                         <h4 class="card-title">${productoCarrito.titulo}</h4>
+                    
+// //                         <p class="card-text">$${productoCarrito.precio}</p> 
+// //                         <button class= "btn btn-danger" id="botonEliminar${productoCarrito.id}"><i class="fas fa-trash-alt"></i></button>
+// //                 </div>    
+            
+            
+// //             </div>
+// //     `
+    
+      
+// // })
+// } 
 function mostrarListadoAlumnos(){
     const listadoAlumnos = registro.map(estudiante => estudiante.nombre + " " + estudiante.apellido)
             console.log(listadoAlumnos)
@@ -246,11 +192,28 @@ function mostrarListadoAlumnos(){
 }
 
 
+
+//Función mostrar grupo de alumnos:
+
+
+
+function ocultarGaleria(){
+    divGaleria.innerHTML =""
+}
+
+//Buscar hobbies afines con nulish:
+
+function coincidirHobbie(){
+    let buscarHobbie = registro.find(estudiante => estudiante.hobbie == hobbieBuscado) ?? "no hay alumnos con ese hobbie"
+    console.log(buscarHobbie)
+}
+
+
 //Función mostrar listado de hobbies:
 
 function mostrarHobbiesAlumnos(){
     const hobbiesAlumnos = registro.map(estudiante => estudiante.nombre + " " + estudiante.apellido + " " + estudiante.hobbie)
-            console.log(hobbiesAlumnos)
+            // console.log(hobbiesAlumnos)
             Swal.fire({
                 title: "Lista de hobbies",
                 text: `${hobbiesAlumnos}`,
@@ -293,3 +256,6 @@ setInterval(function(){
 
 }, 1000);
 
+
+
+    

@@ -203,7 +203,14 @@ h4{
     padding: 0.5rem;
     font-size: 1.5em;
 }
-
+.imgBoton{
+    height: 100px;  
+    border: none;
+    border-radius: 50%;
+    margin: 1.5rem ;
+    padding: 0.5rem 3rem;
+    font-size: 2em;
+}
 footer{
     display: flex;
     flex-direction: row;
@@ -249,12 +256,14 @@ footer{
     display: flex;
     flex-direction: row;
     justify-content: center;
+    background-color: #373339e5;
 }
 
 .grupos .logoGrupos{
     border-radius: 50%;
     height: 100px;
     margin: 1.5rem;
+    background-color: #373339e5;
 }
 .grupos h5{
     color:#D9D9D9;
