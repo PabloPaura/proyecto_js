@@ -20,7 +20,7 @@ class Estudiante{
 }
 
 //Fetch JSON estudantes:
-let rgistro = []
+// let rgistro = []
 fetch("estudiantes.json")
 .then(response => response.json())
 .then(data =>{
@@ -85,8 +85,9 @@ nerdyBtn.addEventListener("click", ()=>{
 
 //Plantilla para crear nuevo estudiante:(Agrego op ternario para cambiar color de edad)
 
-divEstudiantes.innerHTML = ""
+
 function mostrarGaleria(){
+    divEstudiantes.innerHTML = ""
     registro.forEach((estudiante)=>{
         let nuevoCard = document.createElement("div")
         nuevoCard.innerHTML += `<div class="card" style="width: 18rem;">
@@ -133,7 +134,7 @@ function agregarAgrupo(estudiante){
              grupoCompañeros.push(estudiante)
             //  console.log(grupoCompañeros);
              //Cargar al storage
-             localStorage.setItem("grupo", JSON.stringify(grupoCompañeros))       
+             console.log(localStorage.setItem("grupo", JSON.stringify(grupoCompañeros)))       
          }else{
             console.log(`El alumno ${estudiante.nombre} se ha agregado al grupo de trabajo!`)}
         
@@ -184,9 +185,9 @@ function guardarEstudiante(){
         //Dentro del evento:
         console.log(`El alumno ${estudianteAgregado.nombre} ${estudianteAgregado.apellido} ha sido eliminado del grupo de tabajo`)
         //Eliminamos del DOM
-        let cardEstudiante = document.getElementById(`estudianteAgregado${estudianteAgregado.id}`)
+        let cardEstudiante = document.getElementById(`botonEliminar${estudianteAgregado.id}`)
         console.log(cardEstudiante);
-        cardEstudiante.removeChild()
+        cardEstudiante.remove(estudianteAgregado)
 
         //Eliminamos del array compras
         grupoCompañeros.splice(indice, 1)
