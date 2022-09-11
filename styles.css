@@ -1,300 +1,369 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body{
-    background-color: #D9D9D9;
-    color: #373339e5;
+body {
+  background-color: #d9d9d9;
+  color: #373339e5;
 }
 
-.nerdyGrafiti{
-    background-image: url(assets/grafiti1.jpg);
+.nerdyGrafiti {
+  background-image: url(assets/grafiti1.jpg);
 }
 
-#alumnosCards{
-    background-color:#D9D9D9;
-    /* background-image: url(assets/grafiti1.jpg); */
+#alumnosCards {
+  background-color: #d9d9d9;
+  /* background-image: url(assets/grafiti1.jpg); */
 }
-header{
-    background-color:  #373339e5;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+header {
+  background-color: #373339e5;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
-header .icon{
-    height: 100px;
-    margin:1.5rem;
-}
-
-h1{
-    font-size: 3em;
-    text-align: center; 
-    margin-bottom: 3rem;
-}
-h2{
-    text-align: center;
-    font-size: 2.5em;
-    padding: 1rem;
-}
-#alumnosCards{
-    display: grid;
-    grid-template-columns: repeat(4,1fr);
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-    background-color: #D9D9D9;
-    margin-left: 8rem;
-}
-.card{
-    background-color:  #373339e5;
-    color:#D9D9D9;
-}
-.list-group-item{
-    background-color: #373339e5;
-    color:#D9D9D9;
+header .icon {
+  height: 100px;
+  margin: 1.5rem;
 }
 
-.seccionBuscadores{
-    display: flex;
-    flex-direction: row;
+h1 {
+  font-size: 3em;
+  text-align: center;
+  margin-bottom: 3rem;
 }
-.formRegistro{
-    width: 1000px;
-    padding: 3rem;
-    margin: auto;
-    background-color: #373339e5;
-    border-radius: 4px;
-    display: flex;
-    flex-direction: row;
+h2 {
+  text-align: center;
+  font-size: 2.5em;
+  padding: 1rem;
 }
-
-h4{
-    font-size: 2em;
-    margin-bottom: 2rem;
-    color: #373339e5;
-    text-align: center; 
-    margin-top: 2rem;
+#alumnosCards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  background-color: #d9d9d9;
+  margin-left: 8rem;
 }
-.tituloBuscar{
-    color: #D9D9D9;
+.card {
+  background-color: #373339e5;
+  color: #d9d9d9;
 }
-.parrafoInicio{
-    font-size: 1.5em;
-    text-align: justify;
-    width: 70%;
-    margin: auto;
-    padding: 2rem;
-}
-.enlaceEscuelita{
-    text-decoration: none;
-    color: #373339e5;
-
-}
-.controles{
-    width: 100%;
-    background-color: rgba(255, 248, 220, 0.786);
-    color: black;
-    padding: 1rem;
-    border-radius: 4px;
-    margin-bottom: 2rem;
-    border: 1px solid black;
-    font-size: 1.5em;
+.list-group-item {
+  background-color: #373339e5;
+  color: #d9d9d9;
 }
 
-.controlesImputs{
-    display: flex;
-    flex-direction: column;
-    width: 40%;
+.seccionBuscadores {
+  display: flex;
+  flex-direction: row;
+}
+.formRegistro {
+  width: 1000px;
+  padding: 3rem;
+  margin: auto;
+  background-color: #373339e5;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: row;
 }
 
-.controlesBotones{
-    display: flex;
-    flex-direction: column;
-    width: 40%;
-    margin: 3rem;
-    justify-content: center;
-    align-items: center;
+h4 {
+  font-size: 2em;
+  margin-bottom: 2rem;
+  color: #373339e5;
+  text-align: center;
+  margin-top: 2rem;
 }
-.controlesBotones .boton{
-    display: flex;
-    flex-direction: column;
-    background: #f7a2a1;
-    width: 40%;
-    margin: 3rem;
+.tituloBuscar {
+  color: #d9d9d9;
 }
-.formRegistro .boton{
-    background: hsla(0, 87%, 79%, 1);
-    background: linear-gradient(90deg, hsla(0, 87%, 79%, 1) 0%, hsla(6, 77%, 85%, 1) 100%);
-    background: -moz-linear-gradient(90deg, hsla(0, 87%, 79%, 1) 0%, hsla(6, 77%, 85%, 1) 100%);
-    background: -webkit-linear-gradient(90deg, hsla(0, 87%, 79%, 1) 0%, hsla(6, 77%, 85%, 1) 100%);
-    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#F89999", endColorstr="#F6C0BA", GradientType=1 );
-    width: 50%;
-    border: none;
-    border-radius: 5px;
-    margin: 1.5rem 0;
-    padding: 0.5rem;
-    font-size: 1.5em;
+.parrafoInicio {
+  font-size: 1.5em;
+  text-align: justify;
+  width: 70%;
+  margin: auto;
+  padding: 2rem;
 }
-.buscadorRegistro{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 500px;
-    padding: 3rem;
-    margin: auto;
-    background-color:  #373339e5;
-    border-radius: 4px;
+.enlaceEscuelita {
+  text-decoration: none;
+  color: #373339e5;
 }
-.buscadorRegistro .boton{
-    background: hsla(0, 87%, 79%, 1);
-    background: linear-gradient(90deg, hsla(0, 87%, 79%, 1) 0%, hsla(6, 77%, 85%, 1) 100%);
-    background: -moz-linear-gradient(90deg, hsla(0, 87%, 79%, 1) 0%, hsla(6, 77%, 85%, 1) 100%);
-    background: -webkit-linear-gradient(90deg, hsla(0, 87%, 79%, 1) 0%, hsla(6, 77%, 85%, 1) 100%);
-    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#F89999", endColorstr="#F6C0BA", GradientType=1 );
-    width: 50%;
-    border: none;
-    border-radius: 5px;
-    margin: 1.5rem 0;
-    padding: 0.5rem;
-    font-size: 1.5em;
+.controles {
+  width: 100%;
+  background-color: rgba(255, 248, 220, 0.786);
+  color: black;
+  padding: 1rem;
+  border-radius: 4px;
+  margin-bottom: 2rem;
+  border: 1px solid black;
+  font-size: 1.5em;
 }
 
-.promRegistro{
-    width: 500px;
-    padding: 3rem;
-    margin: auto;
-    background-color: #373339e5;
-    border-radius: 4px;
-}
-.promRegistro .boton{
-    background: hsla(0, 87%, 79%, 1);
-    background: linear-gradient(90deg, hsla(0, 87%, 79%, 1) 0%, hsla(6, 77%, 85%, 1) 100%);
-    background: -moz-linear-gradient(90deg, hsla(0, 87%, 79%, 1) 0%, hsla(6, 77%, 85%, 1) 100%);
-    background: -webkit-linear-gradient(90deg, hsla(0, 87%, 79%, 1) 0%, hsla(6, 77%, 85%, 1) 100%);
-    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#F89999", endColorstr="#F6C0BA", GradientType=1 );
-    width: 50%;
-    border: none;
-    border-radius: 5px;
-    margin: 1.5rem 0;
-    padding: 0.5rem;
-    font-size: 1.5em;
+.controlesImputs {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
 }
 
-.buscadorHobbie{
-    width: 500px;
-    padding: 3rem;
-    margin: auto;
-    background-color:  #373339e5;
-    border-radius: 4px;
+.controlesBotones {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  margin: 3rem;
+  justify-content: center;
+  align-items: center;
 }
-.buscadorHobbie .boton{
-    background: hsla(0, 87%, 79%, 1);
-    background: linear-gradient(90deg, hsla(0, 87%, 79%, 1) 0%, hsla(6, 77%, 85%, 1) 100%);
-    background: -moz-linear-gradient(90deg, hsla(0, 87%, 79%, 1) 0%, hsla(6, 77%, 85%, 1) 100%);
-    background: -webkit-linear-gradient(90deg, hsla(0, 87%, 79%, 1) 0%, hsla(6, 77%, 85%, 1) 100%);
-    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#F89999", endColorstr="#F6C0BA", GradientType=1 );
-    width: 50%;
-    border: none;
-    border-radius: 5px;
-    margin: 1.5rem 0;
-    padding: 0.5rem;
-    font-size: 1.5em;
+.controlesBotones .boton {
+  display: flex;
+  flex-direction: column;
+  background: #f7a2a1;
+  width: 40%;
+  margin: 3rem;
 }
-.imgBoton{
-    height: 100px;  
-    border: none;
-    border-radius: 50%;
-    margin: 1.5rem ;
-    padding: 0.5rem 3rem;
-    font-size: 2em;
+.formRegistro .boton {
+  background: hsla(0, 87%, 79%, 1);
+  background: linear-gradient(
+    90deg,
+    hsla(0, 87%, 79%, 1) 0%,
+    hsla(6, 77%, 85%, 1) 100%
+  );
+  background: -moz-linear-gradient(
+    90deg,
+    hsla(0, 87%, 79%, 1) 0%,
+    hsla(6, 77%, 85%, 1) 100%
+  );
+  background: -webkit-linear-gradient(
+    90deg,
+    hsla(0, 87%, 79%, 1) 0%,
+    hsla(6, 77%, 85%, 1) 100%
+  );
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#F89999", endColorstr="#F6C0BA", GradientType=1 );
+  width: 50%;
+  border: none;
+  border-radius: 5px;
+  margin: 1.5rem 0;
+  padding: 0.5rem;
+  font-size: 1.5em;
 }
-footer{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    background-color: #373339e5;
+.buscadorRegistro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 500px;
+  padding: 3rem;
+  margin: auto;
+  background-color: #373339e5;
+  border-radius: 4px;
 }
-.redes__img{
-    margin: 2rem 3rem;
-}
-.edadMenor{
-    color:#609a3f
-}
-.edadMayor{
-    color:#448ee3e0
-}
-.nerdiGrafiti{
-    display: flex;
-    flex-direction: row;
-    justify-content: end;
-    
-}
-.nerdiGrafiti .boton{
-    background: hsla(0, 87%, 79%, 1);
-    background: linear-gradient(90deg, hsla(0, 87%, 79%, 1) 0%, hsla(6, 77%, 85%, 1) 100%);
-    background: -moz-linear-gradient(90deg, hsla(0, 87%, 79%, 1) 0%, hsla(6, 77%, 85%, 1) 100%);
-    background: -webkit-linear-gradient(90deg, hsla(0, 87%, 79%, 1) 0%, hsla(6, 77%, 85%, 1) 100%);
-    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#F89999", endColorstr="#F6C0BA", GradientType=1 );
-    height: 100px;  
-    border: none;
-    border-radius: 50%;
-    margin: 1.5rem ;
-    padding: 0.5rem 3rem;
-    font-size: 2em;
-}
-
-.nerdiGrafiti h5{
-    color:#D9D9D9;
-    margin: 3rem 0.5rem;
-    padding: 0.5rem;
-}
-
-.grupos{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    background-color: #373339e5;
-}
-
-.grupos .logoGrupos{
-    border-radius: 50%;
-    height: 100px;
-    margin: 1.5rem;
-    background-color: #373339e5;
-}
-.grupos h5{
-    color:#D9D9D9;
-    margin: 3rem 0.5rem;
-    padding: 0.5rem;
+.buscadorRegistro .boton {
+  background: hsla(0, 87%, 79%, 1);
+  background: linear-gradient(
+    90deg,
+    hsla(0, 87%, 79%, 1) 0%,
+    hsla(6, 77%, 85%, 1) 100%
+  );
+  background: -moz-linear-gradient(
+    90deg,
+    hsla(0, 87%, 79%, 1) 0%,
+    hsla(6, 77%, 85%, 1) 100%
+  );
+  background: -webkit-linear-gradient(
+    90deg,
+    hsla(0, 87%, 79%, 1) 0%,
+    hsla(6, 77%, 85%, 1) 100%
+  );
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#F89999", endColorstr="#F6C0BA", GradientType=1 );
+  width: 50%;
+  border: none;
+  border-radius: 5px;
+  margin: 1.5rem 0;
+  padding: 0.5rem;
+  font-size: 1.5em;
 }
 
-.seccionReloj{
-    background: hsla(0, 87%, 79%, 1);
-    background: linear-gradient(90deg, hsla(0, 87%, 79%, 1) 0%, hsla(6, 77%, 85%, 1) 100%);
-    background: -moz-linear-gradient(90deg, hsla(0, 87%, 79%, 1) 0%, hsla(6, 77%, 85%, 1) 100%);
-    background: -webkit-linear-gradient(90deg, hsla(0, 87%, 79%, 1) 0%, hsla(6, 77%, 85%, 1) 100%);
-    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#F89999", endColorstr="#F6C0BA", GradientType=1 );
-    width: 100%;
-    height: 20%;
-    display: flex;
-    justify-content: center;
-    /* margin: 2rem; */
+.promRegistro {
+  width: 500px;
+  padding: 3rem;
+  margin: auto;
+  background-color: #373339e5;
+  border-radius: 4px;
 }
-.reloj{
-   display: inline-block;
-   background: rgba(255, 248, 220, 0.786);
-   color: #373339e5; 
-   font-weight: bold;
-   font-size: 3em;
-   border: 3px solid #373339e5;
-   border-radius: 4px;
-   margin: 0.5rem;
-   padding: 0.5rem;
+.promRegistro .boton {
+  background: hsla(0, 87%, 79%, 1);
+  background: linear-gradient(
+    90deg,
+    hsla(0, 87%, 79%, 1) 0%,
+    hsla(6, 77%, 85%, 1) 100%
+  );
+  background: -moz-linear-gradient(
+    90deg,
+    hsla(0, 87%, 79%, 1) 0%,
+    hsla(6, 77%, 85%, 1) 100%
+  );
+  background: -webkit-linear-gradient(
+    90deg,
+    hsla(0, 87%, 79%, 1) 0%,
+    hsla(6, 77%, 85%, 1) 100%
+  );
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#F89999", endColorstr="#F6C0BA", GradientType=1 );
+  width: 50%;
+  border: none;
+  border-radius: 5px;
+  margin: 1.5rem 0;
+  padding: 0.5rem;
+  font-size: 1.5em;
 }
-.redes__img{
-    height:75px;
-    margin: 1.5rem;
+
+.buscadorHobbie {
+  width: 500px;
+  padding: 3rem;
+  margin: auto;
+  background-color: #373339e5;
+  border-radius: 4px;
+}
+.buscadorHobbie .boton {
+  background: hsla(0, 87%, 79%, 1);
+  background: linear-gradient(
+    90deg,
+    hsla(0, 87%, 79%, 1) 0%,
+    hsla(6, 77%, 85%, 1) 100%
+  );
+  background: -moz-linear-gradient(
+    90deg,
+    hsla(0, 87%, 79%, 1) 0%,
+    hsla(6, 77%, 85%, 1) 100%
+  );
+  background: -webkit-linear-gradient(
+    90deg,
+    hsla(0, 87%, 79%, 1) 0%,
+    hsla(6, 77%, 85%, 1) 100%
+  );
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#F89999", endColorstr="#F6C0BA", GradientType=1 );
+  width: 50%;
+  border: none;
+  border-radius: 5px;
+  margin: 1.5rem 0;
+  padding: 0.5rem;
+  font-size: 1.5em;
+}
+.imgBoton {
+  height: 100px;
+  border: none;
+  border-radius: 50%;
+  margin: 1.5rem;
+  padding: 0.5rem 3rem;
+  font-size: 2em;
+}
+footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: #373339e5;
+}
+.redes__img {
+  margin: 2rem 3rem;
+}
+.edadMenor {
+  color: #609a3f;
+}
+.edadMayor {
+  color: #448ee3e0;
+}
+.nerdiGrafiti {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+}
+.nerdiGrafiti .boton {
+  background: hsla(0, 87%, 79%, 1);
+  background: linear-gradient(
+    90deg,
+    hsla(0, 87%, 79%, 1) 0%,
+    hsla(6, 77%, 85%, 1) 100%
+  );
+  background: -moz-linear-gradient(
+    90deg,
+    hsla(0, 87%, 79%, 1) 0%,
+    hsla(6, 77%, 85%, 1) 100%
+  );
+  background: -webkit-linear-gradient(
+    90deg,
+    hsla(0, 87%, 79%, 1) 0%,
+    hsla(6, 77%, 85%, 1) 100%
+  );
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#F89999", endColorstr="#F6C0BA", GradientType=1 );
+  height: 100px;
+  border: none;
+  border-radius: 50%;
+  margin: 1.5rem;
+  padding: 0.5rem 3rem;
+  font-size: 2em;
+}
+
+.nerdiGrafiti h5 {
+  color: #d9d9d9;
+  margin: 3rem 0.5rem;
+  padding: 0.5rem;
+}
+
+.grupos {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: #373339e5;
+}
+
+.grupos .logoGrupos {
+  border-radius: 50%;
+  height: 100px;
+  margin: 1.5rem;
+  background-color: #373339e5;
+}
+.grupos h5 {
+  color: #d9d9d9;
+  margin: 3rem 0.5rem;
+  padding: 0.5rem;
+}
+
+.seccionReloj {
+  background: hsla(0, 87%, 79%, 1);
+  background: linear-gradient(
+    90deg,
+    hsla(0, 87%, 79%, 1) 0%,
+    hsla(6, 77%, 85%, 1) 100%
+  );
+  background: -moz-linear-gradient(
+    90deg,
+    hsla(0, 87%, 79%, 1) 0%,
+    hsla(6, 77%, 85%, 1) 100%
+  );
+  background: -webkit-linear-gradient(
+    90deg,
+    hsla(0, 87%, 79%, 1) 0%,
+    hsla(6, 77%, 85%, 1) 100%
+  );
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#F89999", endColorstr="#F6C0BA", GradientType=1 );
+  width: 100%;
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  /* margin: 2rem; */
+}
+.reloj {
+  display: inline-block;
+  background: rgba(255, 248, 220, 0.786);
+  color: #373339e5;
+  font-weight: bold;
+  font-size: 3em;
+  border: 3px solid #373339e5;
+  border-radius: 4px;
+  margin: 0.5rem;
+  padding: 0.5rem;
+}
+.redes__img {
+  height: 75px;
+  margin: 1.5rem;
 }
