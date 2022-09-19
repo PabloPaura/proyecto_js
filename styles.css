@@ -5,17 +5,17 @@
 }
 
 body {
-  background-color: #d9d9d9;
-  color: #373339e5;
+  background-color: white;
+  color: black;
 }
+ .dark{
+  background: black;
+  color: white;
+ }
 
-.nerdyGrafiti {
-  background-image: url(assets/grafiti1.jpg);
-}
 
 #alumnosCards {
   background-color: #d9d9d9;
-  /* background-image: url(assets/grafiti1.jpg); */
 }
 header {
   background-color: #373339e5;
@@ -80,7 +80,7 @@ h4 {
 .tituloBuscar {
   color: #d9d9d9;
 }
-.parrafoInicio {
+.parrafoExplicativo {
   font-size: 1.5em;
   text-align: justify;
   width: 70%;
@@ -122,6 +122,43 @@ h4 {
   background: #f7a2a1;
   width: 40%;
   margin: 3rem;
+}
+.calcBotones{
+  display: flex;
+  justify-content: center;
+}
+.calcBotones .boton{
+  background: #f7a2a1;
+  width: 3rem;
+  margin: 1rem;
+  border: none;
+  border-radius: 5px;
+  justify-content: center;
+}
+.calcContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.calcContainer .promDisplay{
+  margin: auto;
+}
+.dark .botonLight{
+  border-radius: 50%;
+  margin: 3rem;
+  background-color: #d9d9d9;
+}
+.calcContainer .display{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid 1px black;
+    width: 60%;
+    margin: auto;
+    height: 3rem;
+    border-radius: 4px;
+    background-color: #373339e5;
+    color: #d9d9d9;
 }
 .formRegistro .boton {
   background: hsla(0, 87%, 79%, 1);
@@ -272,12 +309,12 @@ footer {
 .edadMayor {
   color: #448ee3e0;
 }
-.nerdiGrafiti {
+.dark {
   display: flex;
   flex-direction: row;
   justify-content: end;
 }
-.nerdiGrafiti .boton {
+.dark .boton {
   background: hsla(0, 87%, 79%, 1);
   background: linear-gradient(
     90deg,
@@ -303,7 +340,7 @@ footer {
   font-size: 2em;
 }
 
-.nerdiGrafiti h5 {
+.dark h5 {
   color: #d9d9d9;
   margin: 3rem 0.5rem;
   padding: 0.5rem;

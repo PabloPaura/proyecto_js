@@ -1,7 +1,8 @@
 //Idea de proyecto: Galería, tipo muro, de estudiantes, en la que se mostrarán algunos datos de los mismos, una imagen, pasatiempos etc.
-//Desde el botón "conoceme" se accederá a información de contacto sobre el estudiante.
 //Con el icono "grupo" en el header, se podrá crear un grupo con una lógica similar a la de agregar productos a un carrito.
 //También una sección en la que con un alert puede mostrarse la lista de compañeros y una función para buscar amigos con un toast como respuesta.
+//Una sección de buscar hobbies afines entre compañeros.
+//Un calculador de promedios en el que se ingresan notas por un teclado, las notas se reflejan en pantalla y se calcula el promedio.
 
 //Función constructora:
 class Estudiante {
@@ -28,7 +29,7 @@ class Estudiante {
 }
 
 //Fetch JSON estudantes:
-// let rgistro = []
+
 fetch("estudiantes.json")
   .then((response) => response.json())
   .then((data) => {
@@ -49,15 +50,17 @@ fetch("estudiantes.json")
     }
   });
 
+
 //Arrays declarados:
 let registro = [];
 let grupoCompañeros = JSON.parse(localStorage.getItem("grupo")) || [];
 
 //Elementos DOM y variables:
+
+//Grupo de compañeros:
 let mostrargrupoBtn = document.getElementById("verGrupo");
-
+//Modal de grupo compañeros:
 let modalBody = document.getElementById("modal-body");
-
 //Botón mostrar galería:
 let mostrarGaleriaBtn = document.getElementById("mostrarGaleria");
 //Boton guardar estudiante:
@@ -74,12 +77,12 @@ let buscarAlumnoBtn = document.getElementById("buscarEstudiante");
 let buscarHobbieBtn = document.getElementById("buscarHobbie");
 let hobbieBuscado = document.getElementById("hobbieBuscado");
 let listaHobbiesBtn = document.getElementById("listadoHobbies");
-//Modo grafiti y nerdy:
-let grafitiBtn = document.getElementById("btnGrafiti");
-let nerdyBtn = document.getElementById("btnNerdy");
-
+//Botones dark y light mode:
+let lightBtn = document.getElementById("lightMode");
+let darkBtn = document.getElementById("darkMode");
+//Cards de estudiantes:
 let divEstudiantes = document.getElementById("alumnosCards");
-// divEstudiantes.setAttribute("class", "card")
+
 
 //Eventos:
 
@@ -90,11 +93,24 @@ verListaBtn.addEventListener("click", mostrarListadoAlumnos);
 buscarAlumnoBtn.addEventListener("click", buscarAmigo);
 buscarHobbieBtn.addEventListener("click", coincidirHobbie);
 listaHobbiesBtn.addEventListener("click", mostrarHobbiesAlumnos);
-grafitiBtn.addEventListener("click", () => {
-  document.body.style.backgroundImage = "url(assets/grafiti1.jpg)";
-});
-nerdyBtn.addEventListener("click", () => {
-  document.body.style.backgroundImage = "url(assets/nerdyy.jpg)";
+
+//Dark Mode:
+
+let modoOscuro;
+if(localStorage.getItem("darkMode")){
+  modoOscuro = localStorage.getItem("darkMode")
+}else{
+  localStorage.setItem("darkMode", "light")
+} 
+lightBtn.addEventListener("click", () => {
+document.body.style.background = "white";
+document.body.style.color = "black";
+localStorage.setItem("darkMode", "light")  
+ });
+darkBtn.addEventListener("click", () => {
+  document.body.style.background = "black";
+  document.body.style.color = "white";
+  localStorage.setItem("darkMode", "dark")
 });
 
 //Plantilla para crear nuevo estudiante:(Agrego op ternario para cambiar color de edad)
@@ -140,7 +156,6 @@ function mostrarGaleria() {
 
     // Botón agregar estudiante a un grupo:
     let botonAgregar = document.getElementById(`grupo${estudiante.id}`);
-    // console.log(botonAgregar)
     botonAgregar.addEventListener("click", () => {
       agregarAgrupo(estudiante);
     });
@@ -152,25 +167,38 @@ function mostrarGaleria() {
 //Función agregar alumno a grupo:
 
 function agregarAgrupo(estudiante) {
-  console.log(
-    `${estudiante.nombre} ${estudiante.apellido} se ha agregado al grupo de trabajo!`
-  );
+
+  Swal.fire({
+    title: "Grupo",
+    text: `${estudiante.nombre} ${estudiante.apellido} se ha agregado al grupo de trabajo!`,
+    confirmButtonText: "Cerrar",
+    footer: "Bienvenido al nuevo grupo de trabajo!",
+    background: "#D9D9D9",
+    confirmButtonColor: "#f7a2a1",
+    imageUrl: "assets/iconoGrupo.jpg",
+    imageWidth: "100px",
+  });
 
   let estudianteAgregado = grupoCompañeros.indexOf(estudiante);
-  console.log(estudianteAgregado);
-  // console.log(grupoCompañeros);
+  
   if (estudianteAgregado == -1) {
     grupoCompañeros.push(estudiante);
-    //  console.log(grupoCompañeros);
+    
     //Cargar al storage
     console.log(localStorage.setItem("grupo", JSON.stringify(grupoCompañeros)));
   } else {
-    console.log(
-      `El alumno ${estudiante.nombre} se ha agregado al grupo de trabajo!`
-    );
+    Swal.fire({
+      title: "Grupo",
+      text: `${estudiante.nombre} ${estudiante.apellido} ya es parte de este grupo de trabajo! Elegí otro compañero!`,
+      confirmButtonText: "Cerrar",
+      background: "#D9D9D9",
+      confirmButtonColor: "#f7a2a1",
+      imageUrl: "assets/iconoGrupo.jpg",
+      imageWidth: "100px",
+    });
   }
 }
-
+//Función para crear card de estudiante (Se muestra en dom):
 function guardarEstudiante() {
   let nombreImput = document.getElementById("nombreIngresado");
   let apellidoImput = document.getElementById("apellidoIngresado");
@@ -196,7 +224,7 @@ function guardarEstudiante() {
   //Guardar nuevo estudiante en storage:
   localStorage.setItem("registro", JSON.stringify(registro));
 }
-
+//Función para armar grupo de compañeros (El grupo se muestra en un modal)
 function armarGrupo(grupoCompañeros) {
   modalBody.innerHTML = " ";
   grupoCompañeros.forEach((estudianteAgregado) => {
@@ -211,9 +239,7 @@ function armarGrupo(grupoCompañeros) {
                          <p class="card-text">Correo: ${estudianteAgregado.correo}</p> 
                          <p class="card-text">Instagram: ${estudianteAgregado.insta}</p> 
                          <button class= "btn btn-danger" id="botonEliminar${estudianteAgregado.id}"><i class="fas fa-trash-alt"></i></button>
-                 </div>    
-            
-            
+                 </div>                
              </div>
      `;
   });
@@ -223,9 +249,16 @@ function armarGrupo(grupoCompañeros) {
       .getElementById(`botonEliminar${estudianteAgregado.id}`)
       .addEventListener("click", () => {
         //Dentro del evento:
-        console.log(
-          `El alumno ${estudianteAgregado.nombre} ${estudianteAgregado.apellido} ha sido eliminado del grupo de tabajo`
-        );
+        Swal.fire({
+          title: "Grupo",
+          text: `${estudianteAgregado.nombre} ${estudianteAgregado.apellido} se ha eliminado del grupo de trabajo!`,
+          confirmButtonText: "Cerrar",          
+          background: "#D9D9D9",
+          confirmButtonColor: "#f7a2a1",
+          imageUrl: "assets/iconoGrupo.jpg",
+          imageWidth: "100px",
+        });
+
         //Eliminamos del DOM
         let cardEstudiante = document.getElementById(
           `botonEliminar${estudianteAgregado.id}`
@@ -241,12 +274,12 @@ function armarGrupo(grupoCompañeros) {
       });
   });
 }
-
+//Mostrar listado de alumnos: 
 function mostrarListadoAlumnos() {
   const listadoAlumnos = registro.map(
     (estudiante) => estudiante.nombre + " " + estudiante.apellido
   );
-  console.log(listadoAlumnos);
+ 
   Swal.fire({
     title: "Listado de alumnos",
     text: `${listadoAlumnos}`,
@@ -268,16 +301,20 @@ function ocultarGaleria() {
   divGaleria.innerHTML = "";
 }
 
-//Buscar hobbies afines con nulish:
+//Buscar hobbies afines:
 
 function coincidirHobbie() {
   let buscarHobbie =
-    registro.find((estudiante) => estudiante.hobbie == hobbieBuscado) ??
-    "no hay alumnos con ese hobbie";
-  console.log(buscarHobbie);
+    registro.find((estudiante) => estudiante.hobbie === hobbieBuscado) ??
+    Swal.fire({
+      title: "No hay amigos con ese hobbie",
+      confirmButtonColor: "#f7a2a1",
+      toast: "true",
+    });
+
 }
 
-//Función mostrar listado de hobbies:
+// //Función mostrar listado de hobbies:
 
 function mostrarHobbiesAlumnos() {
   const hobbiesAlumnos = registro.map(
@@ -297,7 +334,7 @@ function mostrarHobbiesAlumnos() {
   });
 }
 
-//Función para buecar un amigo con op ternario:
+//Función para buscar un amigo con op ternario:
 
 function buscarAmigo() {
   let busqueda = registro.some(
@@ -330,3 +367,75 @@ setInterval(function () {
 
   html.innerHTML = horas + " : " + minutos + " : " + segundos;
 }, 1000);
+
+//Calculador de promedios:
+//Array con el acumulador de notas
+let accumulator = []
+let result = 0;
+
+
+//Variable con el display
+const display = document.getElementById("calcDisplay");
+
+//Variable donde voy a mostrar las notas ingresadas
+const promDisplay = document.getElementById("promDisplay");
+
+//Tomo los botones y les agrego el evento para que se vean en pantalla
+const btnEvent = document.querySelectorAll("#calcNumber");
+btnEvent.forEach((key) => {
+  key.addEventListener("click", () => {
+    displayNumber(key.innerText);
+  });
+});
+
+//Funcion para mostrar lo que se escribe en pantalla
+function displayNumber(number) {
+  display.innerText === "0"
+    ? (display.innerText = number)
+    : (display.innerText += number);
+}
+
+//Tomo el boton guardar nota y siguiente y le agrego el evento
+const addNotes = document.getElementById("calcAdd");
+addNotes.addEventListener("click", () => addNote(display.innerHTML));
+
+//funcion de sumar nota
+function addNote(add) {
+  accumulator.push(add);
+  promDisplay.innerHTML += `Nota ${accumulator.length}: ${display.innerHTML}<br>`;
+  display.innerHTML = "0";
+  console.log(accumulator);
+}
+
+//boton de promedio y agrego evento
+const promBtn = document.getElementById("calcResult");
+promBtn.addEventListener('click', () => {
+  console.log(accumulator)
+  prom(accumulator)
+})
+
+//Funcion que suma las notas del acumulador
+function prom(accumulator) {
+  let length = accumulator.length
+  let accNumerico = accumulator.map(num => Number(num)).reduce((acc, num) => acc + num);
+  console.log(accNumerico / length)
+  Swal.fire({
+    title: "Promedio",
+    text: `Tu promedio es ${accNumerico / length}`,
+    confirmButtonText: "Cerrar",
+    background: "#D9D9D9",
+    confirmButtonColor: "#f7a2a1",
+  });
+}
+//Función para borrar promedio y dejar el array vacío:
+const btnBorrar = document.getElementById("calcBorrar")
+btnBorrar.addEventListener("click", ()=> {
+  clear(accumulator)
+} )
+function clear (accumulator){
+  accumulator = []
+  display.innerHTML = " "
+  promDisplay.innerHTML = " "
+
+}
+

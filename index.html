@@ -21,11 +21,11 @@
         <a id="verGrupo" data-bs-toggle="modal" data-bs-target="#idModal" class="btn btn-secondary"><i class="fa-solid fa-users-line"></i></a>
       </button> 
     </div>
-    <div class="nerdiGrafiti">
-      <h5>GrafitiMode</h5>
-    <button id="btnGrafiti" class="boton"><i class="fa-solid fa-spray-can"></i></button>  
-    <h5>NerdyMode</h5>
-    <button id="btnNerdy" class="boton"><i class="fa-solid fa-glasses"></i></button>
+    <div class="dark">
+      <h5>Light</h5>
+    <button id="lightMode" class="boton"><i class="fa-solid fa-sun"></i></button>  
+    <h5>Dark</h5>
+    <button id="darkMode" class="boton"><i class="fa-solid fa-moon"></i></button>
   </div>
   </header>
 
@@ -40,7 +40,7 @@
 
   <!-- Registro Alumnos para cards -->
   <h2>¡Bienvenidos!</h2>
-  <p class="parrafoInicio">¡Bienvenido! Estás en la Red Social más piola que vas a encontrar en toda la web. Aquí vas a encontrar muchas opciones para contactarte con tus compañeros, armar grupos de trabajo y divertirte. Junto a Jorge y sus amigos podrás realizar varias tareas como calcular tu promedio por ejemplo.
+  <p class="parrafoExplicativo">¡Bienvenido! Estás en la Red Social más piola que vas a encontrar en toda la web. Aquí vas a encontrar muchas opciones para contactarte con tus compañeros, armar grupos de trabajo y divertirte. Junto a Jorge y sus amigos podrás realizar varias tareas como calcular tu promedio por ejemplo.
     Buscá a tus amigos y si no los encontrás en la galería de compañeros, invitalos para que se unan! 
     Si querés saber más de Jorge, visitá <a class="enlaceEscuelita" href="https://la-escuelita-de-jorge.netlify.app/" target="_blank">La escuelita de Jorge</a> 
     Esperamos que lo pases de 10 durante tu visita. 
@@ -88,20 +88,20 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        <!-- <button type="button" class="btn btn-primary">Understood</button> -->
       </div>
     </div>
   </div>
 </div>
 
+<!-- Buscar Amigos -->
     <div class="seccionBuscadores">
-     <!-- Buscar Amigos -->
      <section class="buscadorRegistro">
        <h4 class="tituloBuscar">Buscador de amigos</h4>
        <input class="controles" type="text" name="apellido" id="apellidoBuscado" placeholder="Ingresá el apellido de tu amigo">
        <input class="boton" id= "buscarEstudiante" type="submit" value="Buscar">
        <input class="boton" id= "mostrarListado" type="submit" value="Mostrar Lista">
      </section>
+
      <!-- Buscar Hobbies afines: -->
      
      <section class="buscadorHobbie">
@@ -115,18 +115,31 @@
  
 
 <!-- Calculador de promedios -->
-
     <h4>Calculador de promedios</h4>
-    <section class="promRegistro">
-      <input class="controles" type="text" name="cantNotas" id="cantNotas" placeholder="Ingresá la cantidad de notas">
-      <input class="controles" type="text" name="notaIngresada" id="notaIngresada" placeholder="Ingresá las notas">
-      <input class="boton" id= "calcPromedio" type="submit" value="Calcular">
-    </section>
-<!--Biblioteca-->  
-    <section>
-      <h4>Biblioteca</h4>
-      <div id="biblioCards" class="biblioteca"></div>
-    </section>
+    <p class="parrafoExplicativo">
+      ¿Cómo funciona? Ingresá la primer nota, luego presioná "add". Verás la primer nota agregada. 
+      Luego continuá hasta agregar todas las notas. 
+      Por último, presioná "prom" y verás tu promedio.
+    </p>
+    <div class="calcContainer">
+      <div class="display" id="calcDisplay">0</div>
+      <div id="promDisplay"></div>
+      <div class="calcBotones" id="calcKeys">
+        <button class="boton" id="calcNumber" type="button">1</button>
+        <button class="boton" id="calcNumber" type="button">2</button>
+        <button class="boton" id="calcNumber" type="button">3</button>
+        <button class="boton" id="calcNumber" type="button">4</button>
+        <button class="boton" id="calcNumber" type="button">5</button>
+        <button class="boton" id="calcNumber" type="button">6</button>
+        <button class="boton" id="calcNumber" type="button">7</button>
+        <button class="boton" id="calcNumber" type="button">8</button>
+        <button class="boton" id="calcNumber" type="button">9</button>
+        <button class="boton" id="calcNumber" type="button">0</button>
+        <button class="boton" id="calcAdd" type="button">Add</button>
+        <button class="boton" id="calcResult" type="button">Prom</button>
+        <button class="boton" id="calcBorrar" type="button">Borrar</button>
+      </div>
+    </div>
 
 
 <footer>
